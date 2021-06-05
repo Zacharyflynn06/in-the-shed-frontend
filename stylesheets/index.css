@@ -1,18 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
 body{
     background-color: #bdd2b6;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    
+    height: 100vh;  
+}
+
+h1 {
+    font-family: 'Permanent Marker', 'sans-serif';
+    font-size: 2.5em;
+    padding-top: 1em;
+    text-decoration: underline;
 }
 
 .song-container {
     display: flex;
     width: 40em;
     height: 50em;
-    align-items: center;
-    justify-content: center;
     background-color: white;
     box-shadow: 10px 10px 8px #888888;
-  }
+    justify-content: center;
+}
+
+.song-title {
+
+}
