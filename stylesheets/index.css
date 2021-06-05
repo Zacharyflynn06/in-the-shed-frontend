@@ -30,12 +30,17 @@ h1 {
     flex-direction: column;
 }
 
+
+
+
+
+
+
 /* metronome */
 .metronome {
     display:flex;
-    align-items: center;
-    justify-content: space-evenly;
     flex-direction: column;
+    justify-content: space-evenly;
     border: 3px solid black;
     background-color: white;
     box-shadow: 10px 10px 8px #888888;
@@ -44,15 +49,31 @@ h1 {
     margin-bottom: 2em;
 }
 
+.tempo-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tempo-text{
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: bold;
+
+}
+
 .tempo{
     font-size: 3em;
     font-weight: bold;
+    text-align: center;
 }
 
 .metronome-settings{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
+
 .metronome button{
     width: 4em;
     height: 2.5em;
@@ -61,6 +82,26 @@ h1 {
     box-sizing: border-box;
     box-shadow: inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
 }
+
+.start-stop {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.tempo-slider{
+    width: 60%;
+}
+
+
+
+
+
+
+
+
+
+
 
 .chord-builder{
     display:flex;
