@@ -5,6 +5,11 @@ const increaseMetBtn = () => document.querySelector('.increase-tempo')
 const tempoRange = () => document.querySelector('.tempo-slider')
 const startStopBtn = () => document.querySelector('.start-stop-button')
 
+
+const hi = new Audio('sounds/metronome_samples/hi.wav')
+const low = new Audio("sounds/metronome_samples/low.wav")
+
+
 let bpm = 100
 let metMarking = 'Moderato'
 
