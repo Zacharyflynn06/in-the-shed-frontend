@@ -1,0 +1,18 @@
+body{
+    background-color: #bdd2b6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.song-container {
+    display: flex;
+    width: 40em;
+    height: 50em;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    box-shadow: 10px 10px 8px #888888;
+  }
