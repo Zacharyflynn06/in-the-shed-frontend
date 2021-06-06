@@ -47,29 +47,23 @@ class Timer{
 
 
 
+const hi = new Audio('sounds/metronome_samples/hi.wav')
+const low = new Audio("sounds/metronome_samples/low.wav")
 
 
-
-const tempoDisplay = () => document.querySelector('.tempo')
+const bpmDisplay = () => document.querySelector('.tempo')
 const tempoText = () => document.querySelector('.tempo-text')
 const decreaseMetBtn = () => document.querySelector('.decrease-tempo')
 const increaseMetBtn = () => document.querySelector('.increase-tempo')
 const tempoRange = () => document.querySelector('.tempo-slider')
-const startStopBtn = () => document.querySelector('.start-stop-button')
-const StopBtn = () => document.querySelector('.stop-button')
-
-
-
-const hi = new Audio('sounds/metronome_samples/hi.wav')
-const low = new Audio("sounds/metronome_samples/low.wav")
+const startButton = () => document.querySelector('.start-stop-button')
 
 let isRunning = false
 let bpm = 120
 let metMarking = 'Moderato'
 
 const setMetMarking = () => {
-    
-    clickTrack.interval = 60000/bpm
+
     if (bpm <= 40 ) {metMarking = "Grave"}
     if (bpm > 40 && bpm <= 60 ) {metMarking = "Largo"}
     if (bpm > 60 && bpm <= 66 ) {metMarking = "Larghetto"}
@@ -87,35 +81,38 @@ const setMetMarking = () => {
 
 tempoRange().addEventListener('input', () => {
     bpm = tempoRange().value
-    tempoDisplay().textContent = bpm
+    bpmDisplay().textContent = bpm
     setMetMarking()
+    clickTrack.interval = 60000/bpm
 })
 
 decreaseMetBtn().addEventListener('click', () => {
     if (bpm <= 20) {return}
     bpm--
-    tempoDisplay().textContent = bpm
+    bpmDisplay().textContent = bpm
     tempoRange().value = bpm
     setMetMarking()
+    clickTrack.interval = 60000/bpm
 })
 
 increaseMetBtn().addEventListener('click', () => {
     if (bpm >= 250) {return}
     bpm++
-    tempoDisplay().textContent = bpm
+    bpmDisplay().textContent = bpm
     tempoRange().value = bpm
     setMetMarking()
+    clickTrack.interval = 60000/bpm
 })
 
-startStopBtn().addEventListener('click', () => {
+startButton().addEventListener('click', () => {
     if (!isRunning) {
         clickTrack.start()
         isRunning = true
-        startStopBtn().innerText = 'STOP'
+        startButton().innerText = 'STOP'
     } else {
         clickTrack.stop()
         isRunning = false
-        startStopBtn().innerText = 'START'
+        startButton().innerText = 'START'
     }
 })
 

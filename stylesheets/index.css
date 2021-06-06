@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 body{
-    background-color: #bdd2b6;
+    font-family: 'Montserrat';
+    background-color: #5e8b7e;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +21,7 @@ h1 {
     width: 40em;
     height: 50em;
     background-color: white;
-    box-shadow: 10px 10px 8px #888888;
+    box-shadow: 10px 10px 8px #2f5d62;
     justify-content: center;
     margin-right: 5em;
 }
@@ -41,9 +42,8 @@ h1 {
     display:flex;
     flex-direction: column;
     justify-content: space-evenly;
-    border: 3px solid black;
     background-color: white;
-    box-shadow: 10px 10px 8px #888888;
+    box-shadow: 10px 10px 8px #2f5d62;
     height: 20em;
     width: 30em;
     margin-bottom: 2em;
@@ -108,6 +108,6 @@ h1 {
     justify-content: center;
     border: 3px solid black;
     background-color: white;
-    box-shadow: 10px 10px 8px #888888;
+    box-shadow: 10px 10px 8px #2f5d62;
     height: 20em;
 }
