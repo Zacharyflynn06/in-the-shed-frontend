@@ -13,7 +13,7 @@ body{
 }
 
 h1 {
-    /* font-family: 'Permanent Marker', 'sans-serif'; */
+    font-family: 'Permanent Marker', 'sans-serif';
     font-size: 2.5em;
     padding-top: 1em;
     text-decoration: underline;
@@ -22,7 +22,7 @@ h1 {
 .song-container {
     display: flex;
     width: 35em;
-    height: 45em;
+    height: 42.5em;
     background-color: white;
     box-shadow: 10px 10px 8px #2f5d62;
     justify-content: center;
@@ -49,7 +49,7 @@ h1 {
     box-shadow: 10px 10px 8px #2f5d62;
     height: 20em;
     width: 30em;
-    margin-bottom: 2em;
+    margin-bottom: 3em;
 }
 
 .tempo-container{
@@ -113,7 +113,6 @@ h1 {
 .chord-builder{
     display:flex;
     justify-content: center;
-    border: 3px solid black;
     background-color: white;
     box-shadow: 10px 10px 8px #2f5d62;
     height: 20em;
