@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+
 body{
     font-family: 'Montserrat';
-    background-color: #5e8b7e;
+    background-image: linear-gradient(#5e8b7e, #a7c4bc, #dfeeea );
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,7 +13,7 @@ body{
 }
 
 h1 {
-    font-family: 'Permanent Marker', 'sans-serif';
+    /* font-family: 'Permanent Marker', 'sans-serif'; */
     font-size: 2.5em;
     padding-top: 1em;
     text-decoration: underline;
@@ -18,8 +21,8 @@ h1 {
 
 .song-container {
     display: flex;
-    width: 40em;
-    height: 50em;
+    width: 35em;
+    height: 45em;
     background-color: white;
     box-shadow: 10px 10px 8px #2f5d62;
     justify-content: center;
@@ -61,6 +64,10 @@ h1 {
     font-size: 1.5em;
     font-weight: bold;
 
+}
+
+.bpm {
+    font-weight: bold;
 }
 
 .tempo{
