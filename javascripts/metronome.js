@@ -1,3 +1,55 @@
+// timer
+
+class Timer{
+    constructor(callback, interval, options) {
+
+        this.interval = interval
+        this.callback = callback
+        this.options = options
+        
+        this.start = () => {
+            this.expectedTime = Date.now() + this.interval
+            
+            if (this.options) {
+                callback()
+            }
+
+            this.timeout = setTimeout(this.cycle, this.interval)
+        }
+
+        this.cycle = () => {
+            const drift = Date.now() - this.expectedTime
+            callback()
+            this.expectedTime += this.interval
+            // console.log(drift)
+            // console.log(this.interval - drift )
+            this.timeout = setTimeout(this.cycle, this.interval - drift)
+        }
+
+        this.stop = () => {
+            clearTimeout(this.timeout)
+            // console.log("stop")
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const tempoDisplay = () => document.querySelector('.tempo')
 const tempoText = () => document.querySelector('.tempo-text')
 const decreaseMetBtn = () => document.querySelector('.decrease-tempo')
@@ -11,7 +63,7 @@ const StopBtn = () => document.querySelector('.stop-button')
 const hi = new Audio('sounds/metronome_samples/hi.wav')
 const low = new Audio("sounds/metronome_samples/low.wav")
 
-
+let isRunning = false
 let bpm = 120
 let metMarking = 'Moderato'
 
@@ -34,7 +86,6 @@ const setMetMarking = () => {
 tempoRange().addEventListener('input', () => {
     bpm = tempoRange().value
     tempoDisplay().textContent = bpm
-    tempoRange().value = bpm
     setMetMarking()
 })
 
@@ -54,13 +105,25 @@ increaseMetBtn().addEventListener('click', () => {
     setMetMarking()
 })
 
-
-const actualTime = (60000/bpm)
-
 startStopBtn().addEventListener('click', () => {
-    const click = new Timer(() => {low.play()}, actualTime , true)
     debugger
-    click.start()
+    if (!isRunning) {
+        metronome.start()
+        isRunning = true
+        startStopBtn().innerText = 'STOP'
+    } else {
+        metronome.stop()
+        isRunning = false
+
+    }
 })
+
+const startClick = () => {
+    hi.play()
+}
+let metronome = new Timer(startClick, 60000/bpm, true)
+
+
+
 
 
