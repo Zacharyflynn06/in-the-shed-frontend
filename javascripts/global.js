@@ -1,7 +1,9 @@
+// click samples
+
 const hi = new Audio('sounds/metronome_samples/hi.wav')
 const low = new Audio("sounds/metronome_samples/low.wav")
 
-
+// metronome
 const bpmDisplay = () => document.querySelector('.tempo')
 const tempoText = () => document.querySelector('.tempo-text')
 const decreaseMetBtn = () => document.querySelector('.decrease-tempo')

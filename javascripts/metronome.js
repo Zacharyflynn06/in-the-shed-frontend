@@ -56,6 +56,9 @@ const startClick = () => {
     hi.play()
     hi.currentTime = 0
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+})
 let clickTrack = new Timer(startClick, 60000/bpm, true)
 
 
