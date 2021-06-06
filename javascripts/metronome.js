@@ -1,9 +1,12 @@
+
+
 const tempoDisplay = () => document.querySelector('.tempo')
 const tempoText = () => document.querySelector('.tempo-text')
 const decreaseMetBtn = () => document.querySelector('.decrease-tempo')
 const increaseMetBtn = () => document.querySelector('.increase-tempo')
 const tempoRange = () => document.querySelector('.tempo-slider')
 const startStopBtn = () => document.querySelector('.start-stop-button')
+const StopBtn = () => document.querySelector('.stop-button')
 
 
 const hi = new Audio('sounds/metronome_samples/hi.wav')
@@ -52,5 +55,11 @@ increaseMetBtn().addEventListener('click', () => {
     setMetMarking()
 })
 
+
+startStopBtn().addEventListener('click', () => {
+    const click = new Timer(() => {hi.play()}, 60000 / bpm, true)
+    
+    click.start()
+})
 
 

@@ -1,46 +1,26 @@
-// document.addEventListener("DOMContentLoaded", function() {
-//     startStopBtn().addEventListener('click', function(){hi.play()})
-// })
-
-
-// function Timer(callback, timeInterval) {
-//     this.timeInterval = timeInterval
-
-//     this.start = () => {
-//         this.expected = Date.now() + this.timeInterval;
-//         this.timeout = setTimeout(this.round, this.timeInterval);
-//         console.log('started')
-//     }
-
-//     this.stop = () => {
-//         clearTimeout(this.timeout)
-//         console.log("stoped")
-//     }
-
-//     this.round = () => {
-//         let drift = Date.now() - this.expected
-//         callback()
-//         this.expected += this.timeInterval
-//         console.log(drift)
-//     }
-// }
-
 class Timer{
-    constructor(callback, interval) {
+    constructor(callback, interval, options) {
 
         this.interval = interval
         this.callback = callback
+        this.options = options
 
         this.start = () => {
             this.expectedTime = Date.now() + this.interval
+            if (this.options) {
+                callback()
+            }
+
             this.timeout = setTimeout(this.cycle, this.interval)
-            console.log("started")
         }
 
         this.cycle = () => {
             const drift = Date.now() - this.expectedTime
+            callback()
             this.expectedTime += this.interval
-            console.log("drift", drift)
+            console.log(drift)
+            console.log(this.interval - drift )
+            this.timeout = setTimeout(this.cycle, this.interval - drift)
         }
 
         this.stop = () => {
@@ -50,5 +30,4 @@ class Timer{
     }
 }
 
-const myTimer = new Timer(() => {console.log("it works")}, 1000)
-myTimer.start()
+
