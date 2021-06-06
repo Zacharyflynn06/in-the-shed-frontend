@@ -68,6 +68,8 @@ let bpm = 120
 let metMarking = 'Moderato'
 
 const setMetMarking = () => {
+    
+    clickTrack.interval = 60000/bpm
     if (bpm <= 40 ) {metMarking = "Grave"}
     if (bpm > 40 && bpm <= 60 ) {metMarking = "Largo"}
     if (bpm > 60 && bpm <= 66 ) {metMarking = "Larghetto"}
@@ -106,22 +108,22 @@ increaseMetBtn().addEventListener('click', () => {
 })
 
 startStopBtn().addEventListener('click', () => {
-    debugger
     if (!isRunning) {
-        metronome.start()
+        clickTrack.start()
         isRunning = true
         startStopBtn().innerText = 'STOP'
     } else {
-        metronome.stop()
+        clickTrack.stop()
         isRunning = false
-
+        startStopBtn().innerText = 'START'
     }
 })
 
 const startClick = () => {
     hi.play()
+    hi.currentTime = 0
 }
-let metronome = new Timer(startClick, 60000/bpm, true)
+let clickTrack = new Timer(startClick, 60000/bpm, true)
 
 
 
