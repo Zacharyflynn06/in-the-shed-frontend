@@ -1,5 +1,3 @@
-
-
 const tempoDisplay = () => document.querySelector('.tempo')
 const tempoText = () => document.querySelector('.tempo-text')
 const decreaseMetBtn = () => document.querySelector('.decrease-tempo')
@@ -9,11 +7,12 @@ const startStopBtn = () => document.querySelector('.start-stop-button')
 const StopBtn = () => document.querySelector('.stop-button')
 
 
+
 const hi = new Audio('sounds/metronome_samples/hi.wav')
 const low = new Audio("sounds/metronome_samples/low.wav")
 
 
-let bpm = 100
+let bpm = 120
 let metMarking = 'Moderato'
 
 const setMetMarking = () => {
@@ -56,9 +55,11 @@ increaseMetBtn().addEventListener('click', () => {
 })
 
 
+const actualTime = (60000/bpm)
+
 startStopBtn().addEventListener('click', () => {
-    const click = new Timer(() => {hi.play()}, 60000 / bpm, true)
-    
+    const click = new Timer(() => {low.play()}, actualTime , true)
+    debugger
     click.start()
 })
 
