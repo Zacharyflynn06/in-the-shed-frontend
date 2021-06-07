@@ -7,7 +7,7 @@
 
 /* chord builder */
 
-.chord-builder{
+.measure-builder{
     display:flex;
     flex-direction: column;
     justify-content: space-evenly;

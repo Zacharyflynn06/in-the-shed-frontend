@@ -23,23 +23,6 @@ h1 {
     grid-area: header;
 }
 
-.m1 {
-    grid-area: m1;
-    border: 1px black solid;
-}
-
-.m2 {
-    grid-area: m2;
-    border: 1px black solid;
-}
-.m3 {
-    grid-area: m3;
-    border: 1px black solid;
-}
-.m4 {
-    grid-area: m4;
-    border: 1px black solid;
-}
 .song-container {
     display: grid;
     width: 40em;
@@ -48,14 +31,19 @@ h1 {
     box-shadow: 10px 10px 8px #2f5d62;
     margin-right: 5em;
     grid-template-columns: 4em 7em 7em 7em 7em 4em;
-    grid-template-rows: 7em 3em 3em 3em 3em;
+    grid-template-rows: 7em 3em 3em 3em 3em 3em 3em 3em 3em;
     column-gap: 10px;
+    row-gap: 10px;
     grid-template-areas: 
         ". . header header . ."
         ". m1 m2 m3 m4 ."
         ". m5 m6 m7 m8 ."
         ". m9 m10 m11 m12 ."
         ". m13 m14 m15 m16 ."
+        ". m17 m18 m19 m20 ."
+        ". m21 m22 m23 m24 ."
+        ". m25 m26 m27 m28 ."
+        ". m29 m30 m31 m32 ."
     ;
 }
 

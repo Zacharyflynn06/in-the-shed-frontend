@@ -19,20 +19,6 @@
             <h1>Song Title</h1>
         </div>
 
-        <div class="m1">
-            1st
-        </div>
-        <div class="m2">
-            2nd
-        </div>
-        <div class="m3">
-            3rd
-        </div>
-        <div class="m4">
-            4th
-        </div>
-
-
     </div>
 
     <div class="tools-container">
@@ -59,16 +45,17 @@
                 </div>
         </div>
     
-        <div class="chord-builder">
+        <div class="measure-builder">
             <label for="measures-field">Number of measures (1-32):</label>
             <input type="number" class="measure-field" name="measures-field" min="1" max="32">
+            <input type="button" class="measure-button" value="Create Measures">
         </div>
-
     </div>
 
     <script src="javascripts/global.js"></script>
     <script src="javascripts/timer.js"></script>
     <script src="javascripts/metronome.js"></script>
+    <script src="javascripts/measure-builder.js"></script>
     <script src="javascripts/models/song.js"></script>
 
 </body>
