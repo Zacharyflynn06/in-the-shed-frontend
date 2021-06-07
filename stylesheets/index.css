@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-
-
 body{
     font-family: 'Montserrat';
     background-image: linear-gradient(#5e8b7e, #a7c4bc, #dfeeea );
@@ -50,104 +48,20 @@ h1 {
     box-shadow: 10px 10px 8px #2f5d62;
     margin-right: 5em;
     grid-template-columns: 4em 7em 7em 7em 7em 4em;
-    grid-template-rows: 7em 5em 5em 5em;
+    grid-template-rows: 7em 3em 3em 3em 3em;
     column-gap: 10px;
     grid-template-areas: 
         ". . header header . ."
         ". m1 m2 m3 m4 ."
+        ". m5 m6 m7 m8 ."
+        ". m9 m10 m11 m12 ."
+        ". m13 m14 m15 m16 ."
     ;
 }
 
 
 
 
-/* tools */
-
-.tools-container{
-    display: flex;
-    flex-direction: column;
-}
 
 
 
-
-
-
-
-/* metronome */
-.metronome {
-    display:flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    background-color: white;
-    box-shadow: 10px 10px 8px #2f5d62;
-    height: 20em;
-    width: 30em;
-    margin-bottom: 2.5em;
-}
-
-.tempo-container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.tempo-text{
-    display: flex;
-    justify-content: center;
-    font-size: 1.5em;
-    font-weight: bold;
-
-}
-
-.bpm {
-    font-weight: bold;
-}
-
-.tempo{
-    font-size: 3em;
-    font-weight: bold;
-    text-align: center;
-}
-
-.metronome-settings{
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.metronome button{
-    width: 4em;
-    height: 2.5em;
-    text-align: center;
-    cursor: pointer;
-    box-sizing: border-box;
-    box-shadow: inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
-}
-
-.start-stop {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-
-.tempo-slider{
-    width: 60%;
-}
-
-
-
-
-
-
-
-
-
-
-
-.chord-builder{
-    display:flex;
-    justify-content: center;
-    background-color: white;
-    box-shadow: 10px 10px 8px #2f5d62;
-    height: 20em;
-}
