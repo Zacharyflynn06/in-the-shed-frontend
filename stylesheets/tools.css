@@ -40,13 +40,17 @@
     box-shadow: 10px 10px 8px #2f5d62;
 }
 
+.button-container {
+    display: flex;
+    justify-content: space-around;
+}
 
 .measure-builder{
     background-color: white;
 }
 
 .chord-builder{
-    background-color: blue;
+    background-color: white;
     transform: rotateY( 180deg );
 
 }
