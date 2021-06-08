@@ -3,7 +3,6 @@
 .tools-container{
     display: flex;
     flex-direction: column;
-
 }
 
 .scene {
@@ -11,7 +10,6 @@
     width: 30em;
     perspective: 30em;
     /* background-color: white; */
-
 }
 
 .card {
@@ -66,7 +64,18 @@
     cursor: pointer;
 }
 
-
+.chord {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border: 1px solid black;
+    height: 3em;
+    width: 7em;
+    cursor: pointer;
+    background-color: #2f5d62;
+    color: white;
+}
 
 
 
