@@ -1,10 +1,3 @@
-const newChord = () => document.querySelector('.new_chord')
-if(newChord()) {
-    newChord().addEventListener('dragstart', dragStart)
-    newChord().addEventListener('dragend', dragEnd)
-}
-
-
 const renderChord = () => {
 
     chordContainer().innerHTML = ""
@@ -15,15 +8,11 @@ const renderChord = () => {
 
     if(type === "♮") type = ""
 
-    
-
     const div = document.createElement("div")
     div.innerHTML = `${note}${type}${quality}`
     div.className = "new_chord"
     div.setAttribute("draggable", "true")
     chordContainer().appendChild(div)
-
-    
 
 }
 
@@ -34,8 +23,11 @@ const cardFlip = () => {
 const renderMeasures = () => {
     
     const n = measureField().value
+    const s = timeSig().value
+    const newString = s.replace('/', "<br>")
 
     measuresContainer().innerHTML = ""
+    // timeSigContainer().innerHTML = s
     for(let i=1; i <= n; i++) {
         const div = document.createElement("div")
         div.innerHTML = `${i}`
@@ -43,9 +35,8 @@ const renderMeasures = () => {
         div.style.gridArea = `m${i}`
         measuresContainer().appendChild(div) 
     }
-    
-    const empties = document.querySelectorAll('.empty')
 
+    const empties = document.querySelectorAll('.empty')
     for(const empty of empties) {
         empty.addEventListener('dragover', dragOver)
         empty.addEventListener('dragenter', dragEnter)
@@ -53,6 +44,12 @@ const renderMeasures = () => {
         empty.addEventListener('drop', dragDrop)
     }
 
+
+    const h2 = document.createElement("h2")
+    h2.innerHTML = newString
+    h2.className = "time-signiture"
+    h2.style.gridArea = 'ts'
+    measuresContainer().appendChild(h2)
 }
 
 // drag and drop
