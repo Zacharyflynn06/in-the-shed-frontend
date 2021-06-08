@@ -1,3 +1,10 @@
+const newChord = () => document.querySelector('.new_chord')
+if(newChord()) {
+    newChord().addEventListener('dragstart', dragStart)
+    newChord().addEventListener('dragend', dragEnd)
+}
+
+
 const renderChord = () => {
 
     chordContainer().innerHTML = ""
@@ -8,17 +15,16 @@ const renderChord = () => {
 
     if(type === "♮") type = ""
 
-    chord = `${note}${type}${quality}`
+    
 
     const div = document.createElement("div")
-    div.innerHTML = chord
+    div.innerHTML = `${note}${type}${quality}`
     div.className = "new_chord"
     div.setAttribute("draggable", "true")
     chordContainer().appendChild(div)
 
-    const newChord = () => document.querySelector('.new_chord')
-    newChord().addEventListener('dragstart', dragStart)
-    newChord().addEventListener('dragend', dragEnd)
+    
+
 }
 
 const cardFlip = () => {
@@ -33,56 +39,65 @@ const renderMeasures = () => {
     for(let i=1; i <= n; i++) {
         const div = document.createElement("div")
         div.innerHTML = `${i}`
-        div.className = `m${i} empty_measure`
+        div.className = `empty`
         div.style.gridArea = `m${i}`
         measuresContainer().appendChild(div) 
+    }
+    
+    const empties = document.querySelectorAll('.empty')
+
+    for(const empty of empties) {
+        empty.addEventListener('dragover', dragOver)
+        empty.addEventListener('dragenter', dragEnter)
+        empty.addEventListener('dragleave', dragLeave)
+        empty.addEventListener('drop', dragDrop)
     }
 
 }
 
 // drag and drop
 
-//loop through empties
-for(const empty of empty_measures) {
-    empty.addEventListener('dragover', dragOver)
-    empty.addEventListener('dragenter', dragEnter)
-    empty.addEventListener('dragleave', dragLeave)
-    empty.addEventListener('drop', dragDrop)
-}
-
-// Drag
-
 function dragStart() {
     this.className += " hold-measure"
     setTimeout(() => this.className = "invisible", 0)
 }
 
-
 function dragEnd() {
     this.className = "new_chord"
 }
 
-function dragOver() {
-    
+function dragOver(e) {
+    e.preventDefault()
 }
 
-function dragEnter() {
-    
+function dragEnter(e) {
+    e.preventDefault()
+    this.className += " hovered"
 }
 
 function dragLeave() {
-    
+    if(this.className === "full_chord hovered"){
+        this.className = "full_chord"
+        this.setAttribute("draggable", "true")
+    } else {
+        this.className = "empty"
+    }
+    // 
 }
 
 function dragDrop() {
-    
+    this.innerHTML = ""
+    this.append(newChord())
+    this.className = "full_chord"
+    this.innerHTML = newChord().innerHTML
+
 }
 document.addEventListener("DOMContentLoaded", () => {
     createMeasureBtn().addEventListener('click', renderMeasures)
     nextBtn().addEventListener('click', cardFlip)
     backBtn().addEventListener('click', cardFlip)
     createChordBtn().addEventListener('click', renderChord)
-    // if(newChord()){
+    // if(chord()){
         
         
     // }

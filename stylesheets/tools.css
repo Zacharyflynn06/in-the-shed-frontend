@@ -65,7 +65,7 @@
 }
 
 
-.full_measure {
+.full_chord {
     display: flex;
     justify-content: center;
     text-align: center;
@@ -78,17 +78,15 @@
     color: white;
     position: relative;
 }
-
-
-.empty_measure {
+.empty {
     border: 1px solid black;
 }
 
-.hold_measure {
+.hold {
     border: 3px solid var(--three);
 }
 
-.hovered_measure {
+.hovered {
     background: var(--four);
     border-style: dashed;
 }
