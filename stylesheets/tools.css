@@ -6,15 +6,14 @@
 }
 
 .scene {
-    height: 20em;
-    width: 30em;
-    perspective: 30em;
+
     /* background-color: white; */
 }
 
 .card {
-    width: 100%;
-    height: 100%;
+    height: 20em;
+    width: 30em;
+    perspective: 30em;
     position: relative;
     transition: transform 1s;
     transform-style: preserve-3d;

@@ -78,11 +78,10 @@ function dragEnter(e) {
 function dragLeave() {
     if(this.className === "full_chord hovered"){
         this.className = "full_chord"
-        this.setAttribute("draggable", "true")
+        console.log(this)
     } else {
         this.className = "empty"
     }
-    // 
 }
 
 function dragDrop() {
@@ -97,9 +96,4 @@ document.addEventListener("DOMContentLoaded", () => {
     nextBtn().addEventListener('click', cardFlip)
     backBtn().addEventListener('click', cardFlip)
     createChordBtn().addEventListener('click', renderChord)
-    // if(chord()){
-        
-        
-    // }
-
 })
