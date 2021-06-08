@@ -1,12 +1,4 @@
 /* tools */
-
-.tools-container{
-    display: flex;
-    flex-direction: column;
-    height: 50em;
-}
-
-
 .card {
     height: 20em;
     width: 30em;
@@ -65,7 +57,7 @@
 }
 
 
-.full-chord {
+.full-chord, .move-chord{
     display: flex;
     justify-content: center;
     text-align: center;
@@ -83,7 +75,7 @@
 }
 
 .hold {
-    border: 3px solid var(--four);
+    border: 3px solid var(--one);
 }
 
 .hovered {

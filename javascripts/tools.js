@@ -60,37 +60,52 @@ const renderForm = () => {
 }
 
 // drag and drop
-
+// new one
 function dragStart(e) {
     e.preventDefault
+    if(this.className === "new-chord"){
         this.className += " hold"
         setTimeout(() => this.className = "invisible", 0)
+    } else if (this.className === "full-chord") {
+        this.className = "move-chord"
+        // const moveChord = document.querySelector('.move-chord')
+        // newVar = moveChord
+    }
 }
 
 function dragEnd() {
-    this.className = "full-chord"
+    console.log("end")
+}
+
+
+// empties
+
+function dragEnter(e) {
+    e.preventDefault()
+    console.log("enter")
+    this.className += " hovered"
 }
 
 function dragOver(e) {
     e.preventDefault()
+    console.log("over")
 }
 
-function dragEnter(e) {
-    e.preventDefault()
-    this.className += " hovered"
-}
 
 function dragLeave() {
-    if (this.className === "full-chord hovered") {
+    console.log("leave")
+
+    if(this.className === "full-chord hovered"){
         this.className = "full-chord"
-    } else {
+    }else{
         this.className = "empty"
         this.innerHTML = this.id
-
     }
 }
 
 function dragDrop() {
+    
+    console.log("drop")
     this.innerHTML = ""
     this.append(newVar)
     this.setAttribute("draggable", "true")
