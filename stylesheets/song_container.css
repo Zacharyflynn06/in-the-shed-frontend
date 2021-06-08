@@ -1,0 +1,37 @@
+/* song */
+
+.song-container{
+    width: 40em;
+    height: 42.5em;
+    background-color: white;
+    box-shadow: 10px 10px 8px #2f5d62;
+    margin-right: 2em;
+}
+
+.measures-container {
+    display: grid;
+    grid-template-columns: 4em 7em 7em 7em 7em 4em;
+    grid-template-rows: 3em 3em 3em 3em 3em 3em 3em 3em 2em 3em;
+    column-gap: 10px;
+    row-gap: 10px;
+    grid-template-areas: 
+        ". m1 m2 m3 m4 ."
+        ". m5 m6 m7 m8 ."
+        ". m9 m10 m11 m12 ."
+        ". m13 m14 m15 m16 ."
+        ". m17 m18 m19 m20 ."
+        ". m21 m22 m23 m24 ."
+        ". m25 m26 m27 m28 ."
+        ". m29 m30 m31 m32 ."
+        ". . . . . . "
+        " . . save delete . ."
+    ;
+}
+
+.song-save {
+    grid-area: save;
+}
+
+.song-delete {
+    grid-area: delete;
+}
