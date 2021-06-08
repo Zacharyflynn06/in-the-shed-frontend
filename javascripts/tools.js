@@ -42,17 +42,41 @@ const renderMeasures = () => {
 
 // drag and drop
 
+//loop through empties
+for(const empty of empty_measures) {
+    empty.addEventListener('dragover', dragOver)
+    empty.addEventListener('dragenter', dragEnter)
+    empty.addEventListener('dragleave', dragLeave)
+    empty.addEventListener('drop', dragDrop)
+}
+
 // Drag
 
-const dragStart = () => {
-    debugger
-}
-
-const dragEnd = () => {
-    console.log('end')
+function dragStart() {
+    this.className += " hold-measure"
+    setTimeout(() => this.className = "invisible", 0)
 }
 
 
+function dragEnd() {
+    this.className = "new_chord"
+}
+
+function dragOver() {
+    
+}
+
+function dragEnter() {
+    
+}
+
+function dragLeave() {
+    
+}
+
+function dragDrop() {
+    
+}
 document.addEventListener("DOMContentLoaded", () => {
     createMeasureBtn().addEventListener('click', renderMeasures)
     nextBtn().addEventListener('click', cardFlip)
