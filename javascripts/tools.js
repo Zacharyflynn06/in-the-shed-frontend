@@ -1,3 +1,4 @@
+let newVar = null
 const renderChord = () => {
 
     chordContainer().innerHTML = ""
@@ -10,29 +11,35 @@ const renderChord = () => {
 
     const div = document.createElement("div")
     div.innerHTML = `${note}${type}${quality}`
-    div.className = "new_chord"
+    div.className = "new-chord"
     div.setAttribute("draggable", "true")
     chordContainer().appendChild(div)
 
+    const newChord = document.querySelector('.new-chord')
+    newVar = newChord
+    newChord.addEventListener('dragstart', dragStart)
+    newChord.addEventListener('dragend', dragEnd)
 }
+
 
 const cardFlip = () => {
     card().classList.toggle('is-flipped')
 }
 
-const renderMeasures = () => {
+const renderForm = () => {
     
+    measuresContainer().innerHTML = ""
+
     const n = measureField().value
     const s = timeSig().value
     const newString = s.replace('/', "<br>")
 
-    measuresContainer().innerHTML = ""
-    // timeSigContainer().innerHTML = s
     for(let i=1; i <= n; i++) {
         const div = document.createElement("div")
-        div.innerHTML = `${i}`
         div.className = `empty`
         div.style.gridArea = `m${i}`
+        div.innerHTML = `${i}`
+        div.id = `${i}`
         measuresContainer().appendChild(div) 
     }
 
@@ -54,13 +61,14 @@ const renderMeasures = () => {
 
 // drag and drop
 
-function dragStart() {
-    this.className += " hold-measure"
-    setTimeout(() => this.className = "invisible", 0)
+function dragStart(e) {
+    e.preventDefault
+        this.className += " hold"
+        setTimeout(() => this.className = "invisible", 0)
 }
 
 function dragEnd() {
-    this.className = "new_chord"
+    this.className = "full-chord"
 }
 
 function dragOver(e) {
@@ -73,24 +81,31 @@ function dragEnter(e) {
 }
 
 function dragLeave() {
-    if(this.className === "full_chord hovered"){
-        this.className = "full_chord"
-        console.log(this)
+    if (this.className === "full-chord hovered") {
+        this.className = "full-chord"
     } else {
         this.className = "empty"
+        this.innerHTML = this.id
+
     }
 }
 
 function dragDrop() {
     this.innerHTML = ""
-    this.append(newChord())
-    this.className = "full_chord"
-    this.innerHTML = newChord().innerHTML
+    this.append(newVar)
+    this.setAttribute("draggable", "true")
+    this.className = "full-chord"
+    this.innerHTML = newVar.innerHTML
 
+    const fullChord = () => document.querySelector('.full-chord')
+    fullChord().addEventListener('dragstart', dragStart)
+    fullChord().addEventListener('dragend', dragEnd)
 }
+
 document.addEventListener("DOMContentLoaded", () => {
-    createMeasureBtn().addEventListener('click', renderMeasures)
+    createMeasureBtn().addEventListener('click', renderForm)
     nextBtn().addEventListener('click', cardFlip)
     backBtn().addEventListener('click', cardFlip)
     createChordBtn().addEventListener('click', renderChord)
+    
 })

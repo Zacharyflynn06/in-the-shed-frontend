@@ -34,12 +34,4 @@ const rootNote = () => document.querySelector('.root-note')
 const rootType = () => document.querySelector('.root-type')
 const chordQuality = () => document.querySelector('.chord-quality')
 const chordContainer = () => document.querySelector('.chord-container')
-const newChord = () => document.querySelector('.new_chord')
-if(newChord()) {
-    newChord().addEventListener('dragstart', dragStart)
-    newChord().addEventListener('dragend', dragEnd)
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    createMeasureBtn().addEventListener('click', renderMeasures)
-})
+// const fullChord = () => document.querySelector('.full-chord')
