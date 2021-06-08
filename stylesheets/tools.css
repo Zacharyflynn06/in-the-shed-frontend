@@ -35,7 +35,7 @@
     align-items: center;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    box-shadow: 10px 10px 8px #2f5d62;
+    box-shadow: 10px 10px 8px var(--one);
 }
 
 .button-container {
@@ -73,7 +73,7 @@
     height: 3em;
     width: 7em;
     cursor: pointer;
-    background-color: #2f5d62;
+    background-color: var(--three);
     color: white;
 }
 
@@ -88,7 +88,7 @@
     flex-direction: column;
     justify-content: space-evenly;
     background-color: white;
-    box-shadow: 10px 10px 8px #2f5d62;
+    box-shadow: 10px 10px 8px var(--one);
     height: 20em;
     width: 30em;
     margin-bottom: 2.5em;
@@ -121,15 +121,6 @@
 .metronome-settings{
     display: flex;
     justify-content: space-evenly;
-}
-
-.metronome button{
-    width: 4em;
-    height: 2.5em;
-    text-align: center;
-    cursor: pointer;
-    box-sizing: border-box;
-    box-shadow: inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
 }
 
 .start-stop {
