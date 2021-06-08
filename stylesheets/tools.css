@@ -64,7 +64,25 @@
     cursor: pointer;
 }
 
-.chord {
+
+.empty_measure {
+    border: 1px solid black;
+}
+
+.hold_measure {
+    border: 3px solid var(--three);
+}
+
+.hovered_measure {
+    background: var(--four);
+    border-style: dashed;
+}
+
+.invisible {
+    display: none
+}
+
+.new_chord {
     display: flex;
     justify-content: center;
     text-align: center;
@@ -75,6 +93,7 @@
     cursor: pointer;
     background-color: var(--three);
     color: white;
+    position: relative;
 }
 
 

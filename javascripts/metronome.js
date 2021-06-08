@@ -22,14 +22,14 @@ tempoRange().addEventListener('input', () => {
     clickTrack.interval = 60000/bpm
 })
 
-decreaseMetBtn().addEventListener('click', () => {
+const decreaseMetronome = () => { 
     if (bpm <= 20) {return}
     bpm--
     bpmDisplay().textContent = bpm
     tempoRange().value = bpm
     setMetMarking()
     clickTrack.interval = 60000/bpm
-})
+}
 
 increaseMetBtn().addEventListener('click', () => {
     if (bpm >= 250) {return}
@@ -44,11 +44,11 @@ startButton().addEventListener('click', () => {
     if (!isRunning) {
         clickTrack.start()
         isRunning = true
-        startButton().innerText = 'STOP'
+        startButton().value = 'Stop'
     } else {
         clickTrack.stop()
         isRunning = false
-        startButton().innerText = 'START'
+        startButton().value = 'Start'
     }
 })
 
@@ -58,10 +58,7 @@ const startClick = () => {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    decreaseMetBtn().addEventListener('click', decreaseMetronome)
 })
+
 let clickTrack = new Timer(startClick, 60000/bpm, true)
-
-
-
-
-

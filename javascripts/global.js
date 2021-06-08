@@ -18,6 +18,21 @@ let isRunning = false
 let bpm = 120
 let metMarking = 'Moderato'
 
+// measure builder
+const createMeasureBtn = () => document.querySelector('.measure-button')
+const measureField = () => document.querySelector('.measure-field')
+const measuresContainer = () => document.querySelector('.measures-container')
+const card = () => document.querySelector('.card')
+const nextBtn = () => document.querySelector('.next-btn')
+const backBtn = () => document.querySelector('.back-btn')
+
+// chord builder
+const createChordBtn = () => document.querySelector('.create-chord-button')
+const rootNote = () => document.querySelector('.root-note')
+const rootType = () => document.querySelector('.root-type')
+const chordQuality = () => document.querySelector('.chord-quality')
+const chordContainer = () => document.querySelector('.chord-container')
+
 
 document.addEventListener("DOMContentLoaded", () => {
     createMeasureBtn().addEventListener('click', renderMeasures)

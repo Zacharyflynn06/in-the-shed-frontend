@@ -1,19 +1,6 @@
-// measure builder
-const createMeasureBtn = () => document.querySelector('.measure-button')
-const measureField = () => document.querySelector('.measure-field')
-const measuresContainer = () => document.querySelector('.measures-container')
-const card = () => document.querySelector('.card')
-const nextBtn = () => document.querySelector('.next-btn')
-const backBtn = () => document.querySelector('.back-btn')
-
-// chord builder
-const createChordBtn = () => document.querySelector('.create-chord-button')
-const rootNote = () => document.querySelector('.root-note')
-const rootType = () => document.querySelector('.root-type')
-const chordQuality = () => document.querySelector('.chord-quality')
-const chordContainer = () => document.querySelector('.chord-container')
-
 const renderChord = () => {
+
+    chordContainer().innerHTML = ""
 
     let note = rootNote().value
     let type = rootType().value
@@ -25,9 +12,13 @@ const renderChord = () => {
 
     const div = document.createElement("div")
     div.innerHTML = chord
-    div.className = "chord"
+    div.className = "new_chord"
+    div.setAttribute("draggable", "true")
     chordContainer().appendChild(div)
 
+    const newChord = () => document.querySelector('.new_chord')
+    newChord().addEventListener('dragstart', dragStart)
+    newChord().addEventListener('dragend', dragEnd)
 }
 
 const cardFlip = () => {
@@ -40,15 +31,25 @@ const renderMeasures = () => {
 
     measuresContainer().innerHTML = ""
     for(let i=1; i <= n; i++) {
-        console.log(i)
         const div = document.createElement("div")
         div.innerHTML = `${i}`
-        div.className = `m${i}`
+        div.className = `m${i} empty_measure`
         div.style.gridArea = `m${i}`
-        div.style.border = "1px black solid"
         measuresContainer().appendChild(div) 
     }
 
+}
+
+// drag and drop
+
+// Drag
+
+const dragStart = () => {
+    debugger
+}
+
+const dragEnd = () => {
+    console.log('end')
 }
 
 
@@ -57,5 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
     nextBtn().addEventListener('click', cardFlip)
     backBtn().addEventListener('click', cardFlip)
     createChordBtn().addEventListener('click', renderChord)
+    // if(newChord()){
+        
+        
+    // }
 
 })
