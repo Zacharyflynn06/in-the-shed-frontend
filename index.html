@@ -15,9 +15,10 @@
 <body>
 
     <div class="song-container">
-        <div class="song-title">
-            <h1>Song Title</h1>
-        </div>
+
+        <span class="song-title"><h1>Song Title</h1></span>
+
+        <div class="measures-container"></div>
 
     </div>
 
@@ -44,12 +45,29 @@
                     <button class="start-stop-button">START</button>
                 </div>
         </div>
+
+        <div class="scene">
+            <div class="card">
+
+                <div class="card_face measure-builder">
+                    <label for="measures-field">Number of measures (1-32):</label>
+                    <input type="number" class="measure-field" name="measures-field" min="1" max="32">
+                    <input type="button" class="measure-button" value="Create Measures">
+                    <input type="button" class="next-btn" value="Add chords">
+                </div>
     
-        <div class="measure-builder">
-            <label for="measures-field">Number of measures (1-32):</label>
-            <input type="number" class="measure-field" name="measures-field" min="1" max="32">
-            <input type="button" class="measure-button" value="Create Measures">
+                <div class="card_face chord-builder">
+                    this is the chord builder
+                    <input type="button" class="back-btn" value="Change Form">
+
+                </div>
+
+            </div>
+
+
+
         </div>
+    
     </div>
 
     <script src="javascripts/global.js"></script>

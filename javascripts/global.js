@@ -17,3 +17,8 @@ const startButton = () => document.querySelector('.start-stop-button')
 let isRunning = false
 let bpm = 120
 let metMarking = 'Moderato'
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    createMeasureBtn().addEventListener('click', renderMeasures)
+})
