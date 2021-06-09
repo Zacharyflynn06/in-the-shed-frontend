@@ -1,8 +1,8 @@
 /* tools */
 .card {
-    height: 20em;
+    height: 47.5%;
     width: 30em;
-    perspective: 30em;
+    perspective: 50%;
     position: relative;
     transition: transform 1s;
     transform-style: preserve-3d;
@@ -113,9 +113,8 @@
     justify-content: space-evenly;
     background-color: white;
     box-shadow: 10px 10px 8px var(--one);
-    height: 20em;
+    height: 47.5%;
     width: 30em;
-    margin-bottom: 2.5em;
 }
 
 .tempo-container{
