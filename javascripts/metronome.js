@@ -60,33 +60,36 @@ startButton().addEventListener('click', () => {
 
 
 let measure = []
+let topNum = timeSig().value.split("/")[0]
+let bottomNum = timeSig().value.split("/")[1]   
 
 const createTempo = () => {
-    let topNum = timeSig().value.split("/")[0]
-    let bottomNum = timeSig().value.split("/")[1]   
-    
+    measure = []
     for(i = 1; i <= topNum; i++) {
-        if(i===1){
-            measure.push(`${i}`)
+        if( i===1 ){
+            measure.push(1)
         } else {
-            measure.push("0")
+            measure.push(0)
         }
     }
 }
 
+let count = 0
 const startTime = () => {
-    for(let i = 1; i <= measure.length; i++ ){
-        debugger
-        if(measure[i] === 1){
-            console.log(i)
+    if( count === measure.length ) {
+        count = 0
+    }
+    if (count === 0) {
+            console.log("hi")
             hi.play()
             hi.currentTime = 0
-        } else {
-            console.log("not i")
+    } else {
+            console.log("low")
             low.play()
             low.currentTime = 0
-        }
     }
+    count++
+
 }
 
 const clickTrack = new Timer(startTime, 60000/bpm, true)

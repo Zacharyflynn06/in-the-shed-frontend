@@ -19,8 +19,8 @@ class Timer{
             const drift = Date.now() - this.expectedTime
             callback()
             this.expectedTime += this.interval
-            console.log(drift)
-            console.log(this.interval - drift )
+            // console.log(drift)
+            // console.log(this.interval - drift )
             this.timeout = setTimeout(this.cycle, this.interval - drift)
         }
 

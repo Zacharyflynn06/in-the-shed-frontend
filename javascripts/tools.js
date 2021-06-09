@@ -28,6 +28,7 @@ const cardFlip = () => {
 
 const renderForm = () => {
     
+    createTempo()
     measuresContainer().innerHTML = ""
 
     const n = measureField().value
