@@ -1,7 +1,7 @@
 /* tools */
 .card {
     height: 47.5%;
-    width: 30em;
+    width: 100%;
     perspective: 50%;
     position: relative;
     transition: transform 1s;
@@ -114,7 +114,7 @@
     background-color: white;
     box-shadow: 10px 10px 8px var(--one);
     height: 47.5%;
-    width: 30em;
+    width: 100%;
 }
 
 .tempo-container{

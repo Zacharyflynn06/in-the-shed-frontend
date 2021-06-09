@@ -29,6 +29,7 @@ const cardFlip = () => {
 const renderForm = () => {
     
     createTempo()
+    clickCount = 0
     measuresContainer().innerHTML = ""
 
     const n = measureField().value

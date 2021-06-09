@@ -14,11 +14,6 @@ const increaseMetBtn = () => document.querySelector('.increase-tempo')
 const tempoRange = () => document.querySelector('.tempo-slider')
 const startButton = () => document.querySelector('.start-stop-button')
 
-let isRunning = false
-let bpm = 120
-let metMarking = 'Moderato'
-let clickCount = 0
-
 
 
 // form builder
@@ -39,3 +34,11 @@ const chordQuality = () => document.querySelector('.chord-quality')
 const chordContainer = () => document.querySelector('.chord-container')
 
 
+
+let isRunning = false
+let bpm = 120
+let metMarking = 'Moderato'
+let clickCount = 0
+let topNum = timeSig().value.split("/")[0]
+let bottomNum = timeSig().value.split("/")[1] 
+let measure = []

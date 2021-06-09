@@ -54,17 +54,9 @@ startButton().addEventListener('click', () => {
 })
 
 
-
-
-
-
-
-let measure = []
-let topNum = timeSig().value.split("/")[0]
-let bottomNum = timeSig().value.split("/")[1]   
-
 const createTempo = () => {
     measure = []
+    topNum = timeSig().value.split("/")[0]
     for(i = 1; i <= topNum; i++) {
         if( i===1 ){
             measure.push(1)
@@ -74,12 +66,13 @@ const createTempo = () => {
     }
 }
 
-let count = 0
 const startTime = () => {
-    if( count === measure.length ) {
-        count = 0
+
+    
+    if( clickCount === measure.length ) {
+        clickCount = 0
     }
-    if (count === 0) {
+    if (clickCount === 0) {
             console.log("hi")
             hi.play()
             hi.currentTime = 0
@@ -88,7 +81,7 @@ const startTime = () => {
             low.play()
             low.currentTime = 0
     }
-    count++
+    clickCount++
 
 }
 
