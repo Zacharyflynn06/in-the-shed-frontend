@@ -6,7 +6,7 @@ const low = new Audio("sounds/metronome_samples/low.wav")
 // song container
 const songContainer = () => document.querySelector('.song-container')
 
-// metronome
+// metronome + timer
 const bpmDisplay = () => document.querySelector('.tempo')
 const tempoText = () => document.querySelector('.tempo-text')
 const decreaseMetBtn = () => document.querySelector('.decrease-tempo')
@@ -17,6 +17,9 @@ const startButton = () => document.querySelector('.start-stop-button')
 let isRunning = false
 let bpm = 120
 let metMarking = 'Moderato'
+let clickCount = 0
+
+
 
 // form builder
 const createMeasureBtn = () => document.querySelector('.measure-button')
@@ -34,4 +37,5 @@ const rootNote = () => document.querySelector('.root-note')
 const rootType = () => document.querySelector('.root-type')
 const chordQuality = () => document.querySelector('.chord-quality')
 const chordContainer = () => document.querySelector('.chord-container')
-// const fullChord = () => document.querySelector('.full-chord')
+
+

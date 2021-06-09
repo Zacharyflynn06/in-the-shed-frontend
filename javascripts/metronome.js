@@ -41,6 +41,7 @@ increaseMetBtn().addEventListener('click', () => {
 })
 
 startButton().addEventListener('click', () => {
+    clickCount = 0
     if (!isRunning) {
         clickTrack.start()
         isRunning = true
@@ -52,13 +53,40 @@ startButton().addEventListener('click', () => {
     }
 })
 
-const startClick = () => {
-    hi.play()
-    hi.currentTime = 0
+
+
+
+
+
+
+let measure = []
+
+const createTempo = () => {
+    let topNum = timeSig().value.split("/")[0]
+    let bottomNum = timeSig().value.split("/")[1]   
+    
+    for(i = 1; i <= topNum; i++) {
+        if(i===1){
+            measure.push(`${i}`)
+        } else {
+            measure.push("0")
+        }
+    }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    decreaseMetBtn().addEventListener('click', decreaseMetronome)
-})
+const startTime = () => {
+    for(let i = 1; i <= measure.length; i++ ){
+        debugger
+        if(measure[i] === 1){
+            console.log(i)
+            hi.play()
+            hi.currentTime = 0
+        } else {
+            console.log("not i")
+            low.play()
+            low.currentTime = 0
+        }
+    }
+}
 
-let clickTrack = new Timer(startClick, 60000/bpm, true)
+const clickTrack = new Timer(startTime, 60000/bpm, true)

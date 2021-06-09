@@ -117,10 +117,3 @@ function dragDrop() {
     fullChord().addEventListener('dragend', dragEnd)
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    createMeasureBtn().addEventListener('click', renderForm)
-    nextBtn().addEventListener('click', cardFlip)
-    backBtn().addEventListener('click', cardFlip)
-    createChordBtn().addEventListener('click', renderChord)
-    
-})
