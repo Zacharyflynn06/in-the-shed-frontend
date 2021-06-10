@@ -56,7 +56,7 @@ const renderForm = () => {
 
     const h2 = document.createElement("h2")
     h2.innerHTML = newString
-    h2.className = "time-signiture"
+    h2.className = "time-signature"
     h2.style.gridArea = 'ts'
     measuresContainer().appendChild(h2)
 }
