@@ -3,8 +3,14 @@
 const hi = new Audio('sounds/metronome_samples/hi.wav')
 const low = new Audio("sounds/metronome_samples/low.wav")
 
-// song container
+// song
 const songContainer = () => document.querySelector('.song-container')
+const loadSongBtn = () => document.querySelector('.load-button')
+
+
+
+
+
 
 // metronome + timer
 const bpmDisplay = () => document.querySelector('.tempo')
