@@ -6,6 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     nextBtn().addEventListener('click', cardFlip)
     backBtn().addEventListener('click', cardFlip)
     createChordBtn().addEventListener('click', renderChord)
-    loadSongBtn().addEventListener("click", fetchSong)
+    // loadSongBtn().addEventListener("click", fetchSong)
     createTempo()
 })

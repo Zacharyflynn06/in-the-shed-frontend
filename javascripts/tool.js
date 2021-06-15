@@ -3,14 +3,15 @@ const renderChord = () => {
 
     chordContainer().innerHTML = ""
 
-    let note = rootNote().value
+    let root = rootNote().value
     let type = rootType().value
     let quality = chordQuality().value
 
     if(type === "♮") type = ""
+    if(quality === "maj") quality = ""
 
     const div = document.createElement("div")
-    div.innerHTML = `${note}${type}${quality}`
+    div.innerHTML = `${root}${type}${quality}`
     div.className = "new-chord"
     div.setAttribute("draggable", "true")
     chordContainer().appendChild(div)
@@ -19,6 +20,7 @@ const renderChord = () => {
     newVar = newChord
     newChord.addEventListener('dragstart', dragStart)
     newChord.addEventListener('dragend', dragEnd)
+    playChord(`${root}${type}`, `${quality}`)
 }
 
 
@@ -65,6 +67,7 @@ const renderForm = () => {
 // new one
 function dragStart(e) {
     e.preventDefault
+    
     if(this.className === "new-chord"){
         this.className += " hold"
         setTimeout(() => this.className = "invisible", 0)
