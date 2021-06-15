@@ -9,8 +9,14 @@ Tools
         clear the chord when its created [x]
 
     add time signiture for song
-        add counter for hi and low click depending on time signiture[]
+        add counter for hi and low click depending on time signiture[x]
 
     Build chord library
-        samples for all the chords []
-        add chord playback []
+        samples for all the chords [x]
+        add chord playback [x]
+
+
+build side nav bar
+    add hamburger to open []
+    add login and create user []
+    add song load and save buttons
