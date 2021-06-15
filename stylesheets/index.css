@@ -27,14 +27,56 @@ h2 {
     text-decoration: underline;
 }
 
-.nav-container{
+#nav-container{
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
 
+}
+
+.closed{
+    width: 0;
+    transform: translateX(-1000px);
+    transition: transform 500ms;
+}
+
+.open{
     height: 100vh;
-    width: 15%;
     background-color: black;
     color: white;
+    width: 15%;
+    transform: translateX(0px);
+    transition: transform 200ms;
+}
+
+
+
+.hamburger-button{
+    font-size: 4vh;
+    color: white;
+    float: right;
+    position: relative;
+    margin-top: 1.5%;
+    margin-left: 1.5%;
+
+}
+
+.hamburger-button:hover{
+    cursor: pointer;
+}
+
+.songs-list {
+    text-align: center;
+}
+
+.songs-list > li {
+    text-align: center;
+}
+
+.songs-list > li:hover {
+    cursor: pointer;
+    transform: scale(1.2);
 }
 
 .master-container {
@@ -47,7 +89,7 @@ h2 {
     justify-content: space-evenly;
     align-items: center;
     height: 100vh;
-    width: 80%;
+    width: 100%;
 }
 
 .header-container {

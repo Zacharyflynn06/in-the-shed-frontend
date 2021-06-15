@@ -13,7 +13,10 @@ const loadSongBtn = () => document.querySelector('.load-button')
 let isPlaying = false
 
 
+// Nav-bar
 
+const hamburgerBtn = () => document.querySelector('.hamburger-button')
+const navBar = () => document.querySelector('#nav-container')
 
 // metronome + timer
 const bpmDisplay = () => document.querySelector('.tempo')
