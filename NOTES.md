@@ -26,4 +26,7 @@ build side nav bar
 
     fade in + out functionality
 
+
+Emin chords not working
+
     

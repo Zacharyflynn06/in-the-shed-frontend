@@ -56,10 +56,8 @@ h2 {
     font-size: 4vh;
     color: white;
     float: right;
-    position: relative;
     margin-top: 1.5%;
     margin-left: 1.5%;
-
 }
 
 .hamburger-button:hover{
