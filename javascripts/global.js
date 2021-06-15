@@ -4,9 +4,7 @@ const hi = new Audio('sounds/metronome_samples/hi.wav')
 const low = new Audio("sounds/metronome_samples/low.wav")
 
 
-const playChord = (chord) => {
-    new Audio(`sounds/chords/${chord}`)
-}
+
 
 // song
 const songContainer = () => document.querySelector('.song-container')
