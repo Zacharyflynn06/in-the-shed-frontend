@@ -20,3 +20,10 @@ build side nav bar
     add hamburger to open []
     add login and create user []
     add song load and save buttons
+
+
+    change # to sharp
+
+    fade in + out functionality
+
+    

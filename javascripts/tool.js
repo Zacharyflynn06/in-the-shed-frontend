@@ -9,6 +9,7 @@ const renderChord = () => {
 
     if(type === "♮") type = ""
     if(quality === "maj") quality = ""
+    
 
     const div = document.createElement("div")
     div.innerHTML = `${root}${type}${quality}`
@@ -21,6 +22,7 @@ const renderChord = () => {
     newChord.addEventListener('dragstart', dragStart)
     newChord.addEventListener('dragend', dragEnd)
     playChord(`${root}${type}`, `${quality}`)
+    
 }
 
 

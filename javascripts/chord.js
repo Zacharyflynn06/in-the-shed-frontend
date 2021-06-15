@@ -1,5 +1,10 @@
 const playChord = (root, quality) => {
 
+    // if(isPlaying !== false) {
+    //     debugger
+    //     isPlaying.stop()
+    // }
+
     switch(root){
         case "A#":
             root = "Bb"
@@ -30,8 +35,18 @@ const playChord = (root, quality) => {
             break
     }
 
-    const newChord = new Audio(`sounds/chords/${root}${quality}.wav`)
+    const newQuality = quality.replace("#", "sharp")
+    console.log(newQuality)
+    const newChord = new Audio(`sounds/chords/${root}/${root}${newQuality}.wav`)
+
     newChord.play()
+
+    setTimeout(() => {
+        newChord.pause()
+        newChord.currentTime = 0
+    }, 1000);
+
     newChord.currentTime = 0
+    // isPlaying = newChord
 }
 

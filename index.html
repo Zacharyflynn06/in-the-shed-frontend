@@ -14,166 +14,177 @@
 
 
 </head>
+
 <body>
 
     <div class="master-container">
-
-        <div class="header-container">
-            <span class="site-title">In The Shed</span>
-        </div>
-
-        <div class="main-content-container">
-            <div class="song-container">
-
-                <div class="song-header">
-                    <span class="song-title">Song Title</span>
-                </div>
-    
-                <div class="measures-container">
-        
-                </div>
-<!-- 
-                <div class="buttons-container">
-                    <input type="button" class="load-button" value="load">
-                </div> -->
-    
+        <div class="nav-container">
+            <h1>Nav Bar</h1>
+            <div class="buttons-container">
+                <input type="button" class="create-user" value="Create User">
+                <input type="button" class="login" value="Login">
+                
             </div>
+        </div>
         
-            <div class="tools-container">
-        
-                <div class="metronome">
-
-                    <div class="metronome-text-container">
-        
-                        <div class="tempo-container">
-                            <span class="tempo">120</span>
-                            <span class="bpm">BPM</span>
-                        </div>
-        
-                        <div class="tempo-text">
-                            Moderato
-                        </div>
+        <div class="body-container">
+            <div class="header-container">
+                <span class="site-title">In The Shed</span>
+            </div>
+    
+            <div class="main-content-container">
+                <div class="song-container">
+    
+                    <div class="song-header">
+                        <span class="song-title">Song Title</span>
                     </div>
         
-                        <div class="metronome-settings">
-                            <input type="button" class="decrease-tempo" value="-" ></input>
-                            <input type="range" min="20" max="250" step="1" class="tempo-slider">
-                            <input type="button" class="increase-tempo" value="+" ></input>
-                        </div>
-        
-                        <div class="start-stop">
-                            <input type="button" class="start-stop-button" value="Start"></input>
-                        </div>
-                </div>
-        
-                <div class="card">
-        
-                    <div class="card_face measure-builder">
-                        <label for="measures-field" class="measures-field-label">Number of measures (1-32):</label>
-                        <input type="number" class="measure-field" name="measures-field" min="1" max="32">
-        
-                        <label for="time-sig">Time signature</label>
-                        <select name="time-sig" class="time-sig-field">
-                            <option value="4/4">4/4</option>
-                            <option value="3/4">3/4</option>
-                            <option value="2/4">2/4</option>
-        
-        
-                        </select>
-                        <div class="button-container">
-                            <input type="button" class="measure-button" value="Create Measures">
-                            <input type="button" class="next-btn" value="Add chords">
-                        </div>
-        
+                    <div class="measures-container">
+            
                     </div>
+    
+                    
         
-                    <div class="card_face chord-builder">
-                        <div class="select-container">
-                            <label for="root-note">Root</label>
-                            <select name="root-note" id="root-note" class="root-note">
-        
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="C">C</option>
-                                <option value="D">D</option>
-                                <option value="E">E</option>
-                                <option value="F">F</option>
-                                <option value="G">G</option>
-        
-                            </select>
-        
-                            <label for="root-type">Type</label>
-                            <select name="root-type" id="root-type" class="root-type">
-        
-                                <option value="♮">♮</option>
-                                <option value="b">b</option>
-                                <option value="#">#</option>
-                            </select>
-                            
-                            <label for="chord-quality">Quality</label>
-                            <select name="chord-quality" id="chord-quality" class="chord-quality">
-                                <!-- major family -->
-                                <option value="maj">maj</option>
-                                <option value="add2">add2</option>
-                                <option value="maj69">maj69</option>
-                                <option value="6">6</option>
-                                <option value="maj7">maj7</option>
-                                <option value="maj9">maj9</option>
-                                <option value="maj9(open)">maj9(open)</option>
-                                <option value="maj69#11">maj69#11</option>
-
-                                <!-- minor family -->
-                                <option value="min">min</option>
-                                <option value="minadd2">minadd2</option>
-                                <option value="min69">min69</option>
-                                <option value="min6">min6</option>
-                                <option value="min7">min7</option>
-                                <option value="min9">min9</option>
-                                <option value="min9(open)">min9(open)</option>
-                                <option value="min11">min11</option>
-
-                                <!-- augment -->
-                                <option value="aug">aug</option>
-
-                                <!-- diminished -->
-                                <option value="dim">dim</option>
-
-                                <option value="m7b5">m7b5</option>
-                                <option value="o7">dim7</option>
- 
-                                <!-- dominant family -->
-                                <option value="7">7</option>
-                                <option value="9">9</option>
-                                <option value="7#9">7#9</option>
-                                <option value="13">13</option>
-
-
-                                
-                            </select>
-        
-                            <input type="button" value="Create Chord" class="create-chord-button">
-        
-                        </div>
-        
-                        <div class="chord-container">
-        
-                        </div>
-        
-                        <div class="button-container">
-                            <input type="button" class="back-btn" value="Change Form">
-                        </div>
-        
-                    </div>
                 </div>
             
+                <div class="tools-container">
+            
+                    <div class="metronome">
+    
+                        <div class="metronome-text-container">
+            
+                            <div class="tempo-container">
+                                <span class="tempo">120</span>
+                                <span class="bpm">BPM</span>
+                            </div>
+            
+                            <div class="tempo-text">
+                                Moderato
+                            </div>
+                        </div>
+            
+                            <div class="metronome-settings">
+                                <input type="button" class="decrease-tempo" value="-" ></input>
+                                <input type="range" min="20" max="250" step="1" class="tempo-slider">
+                                <input type="button" class="increase-tempo" value="+" ></input>
+                            </div>
+            
+                            <div class="start-stop">
+                                <input type="button" class="start-stop-button" value="Start"></input>
+                            </div>
+                    </div>
+            
+                    <div class="card">
+            
+                        <div class="card_face measure-builder">
+                            <label for="measures-field" class="measures-field-label">Number of measures (1-32):</label>
+                            <input type="number" class="measure-field" name="measures-field" min="1" max="32">
+            
+                            <label for="time-sig">Time signature</label>
+                            <select name="time-sig" class="time-sig-field">
+                                <option value="4/4">4/4</option>
+                                <option value="3/4">3/4</option>
+                                <option value="2/4">2/4</option>
+            
+            
+                            </select>
+                            <div class="button-container">
+                                <input type="button" class="measure-button" value="Create Measures">
+                                <input type="button" class="next-btn" value="Add chords">
+                            </div>
+            
+                        </div>
+            
+                        <div class="card_face chord-builder">
+                            <div class="select-container">
+                                <label for="root-note">Root</label>
+                                <select name="root-note" id="root-note" class="root-note">
+            
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                    <option value="F">F</option>
+                                    <option value="G">G</option>
+            
+                                </select>
+            
+                                <label for="root-type">Type</label>
+                                <select name="root-type" id="root-type" class="root-type">
+            
+                                    <option value="♮">♮</option>
+                                    <option value="b">b</option>
+                                    <option value="#">#</option>
+                                </select>
+                                
+                                <label for="chord-quality">Quality</label>
+                                <select name="chord-quality" id="chord-quality" class="chord-quality">
+                                    <!-- major family -->
+                                    <option value="maj">maj</option>
+                                    <option value="add2">add2</option>
+                                    <option value="maj69">maj69</option>
+                                    <option value="6">6</option>
+                                    <option value="maj7">maj7</option>
+                                    <option value="maj9">maj9</option>
+                                    <option value="maj9(open)">maj9(open)</option>
+                                    <option value="maj69#11">maj69#11</option>
+    
+                                    <!-- minor family -->
+                                    <option value="min">min</option>
+                                    <option value="minadd2">minadd2</option>
+                                    <option value="min69">min69</option>
+                                    <option value="min6">min6</option>
+                                    <option value="min7">min7</option>
+                                    <option value="min9">min9</option>
+                                    <option value="min9(open)">min9(open)</option>
+                                    <option value="min11">min11</option>
+    
+                                    <!-- augment -->
+                                    <option value="aug">aug</option>
+    
+                                    <!-- diminished -->
+                                    <option value="dim">dim</option>
+    
+                                    <option value="m7b5">m7b5</option>
+                                    <option value="o7">dim7</option>
+     
+                                    <!-- dominant family -->
+                                    <option value="7">7</option>
+                                    <option value="9">9</option>
+                                    <option value="7#9">7#9</option>
+                                    <option value="13">13</option>
+    
+    
+                                    
+                                </select>
+            
+                                <input type="button" value="Create Chord" class="create-chord-button">
+            
+                            </div>
+            
+                            <div class="chord-container">
+            
+                            </div>
+            
+                            <div class="button-container">
+                                <input type="button" class="back-btn" value="Change Form">
+                            </div>
+            
+                        </div>
+                    </div>
+                
+                </div>
+    
+    
             </div>
-
-
+    
+            <div class="footer">
+                <span class="footer-text">© 2021 Zac Flynn</span>
+            </div>
+        
         </div>
 
-        <div class="footer">
-            <span class="footer-text">© 2021 Zac Flynn</span>
-        </div>
 
     </div>
 
