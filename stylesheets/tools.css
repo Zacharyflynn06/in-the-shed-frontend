@@ -1,4 +1,6 @@
 /* tools */
+
+
 .card {
     height: 47.5%;
     width: 100%;
@@ -38,7 +40,7 @@
 .chord-builder{
     background-color: white;
     transform: rotateY( 180deg );
-
+    
 }
 
 .chord-container{
@@ -46,7 +48,7 @@
 }
 
 .measure-field, .time-sig-field {
-
+    
     width: 30%;
     height: 15%;
     font-size: 2vw;
@@ -67,8 +69,8 @@
     text-align: center;
     align-items: center;
     border: 1px solid black;
-    height: 3em;
-    width: 7em;
+    /* height: 3em;
+    width: 7em; */
     cursor: pointer;
     background-color: var(--three);
     color: white;
@@ -121,10 +123,18 @@
     width: 100%;
 }
 
+.metronome-text-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 50%;
+
+}
 .tempo-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    height: 30%;
 }
 
 .tempo-text{
@@ -137,10 +147,11 @@
 
 .bpm {
     font-weight: bold;
+    font-size: 4vh;
 }
 
 .tempo{
-    font-size: 4.5vh;
+    font-size: 5vh;
     font-weight: bold;
     text-align: center;
 }
