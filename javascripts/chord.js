@@ -1,5 +1,6 @@
-const playChord = (root, family, chord) => {
-    const newChord = new Audio(`sounds/chords/${root}/${family}/${chord}.wav`)
+const playChord = (chord) => {
+    const newChord = new Audio(`sounds/chords/${chord}.wav`)
     newChord.play()
+    newChord.currentTime = 0
 }
 
