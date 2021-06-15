@@ -41,9 +41,10 @@ h2 {
     justify-content: space-evenly;
     height: 5%;
 }
+
 .site-title {
 
-    font-size: 300%;
+    font-size: 6vh;
     color: var(--four);
     text-shadow: 10px 10px 8px var(--one);
 
@@ -79,7 +80,7 @@ h2 {
 }
 
 .footer-text {
-    font-size: 1em;
+    font-size: 2vh;
     color: var(--four);
     text-shadow: 10px 10px 8px var(--one);
 }

@@ -46,10 +46,14 @@
 }
 
 .measure-field, .time-sig-field {
-    text-align: center;
-    font-size: 2.5em;
-    width: 4em;
-    height: auto;
+
+    width: 30%;
+    height: 15%;
+    font-size: 2vw;
+}
+
+.measure-field-label {
+    font-size: 3vh;
 }
 
 .measure-button {
@@ -126,7 +130,7 @@
 .tempo-text{
     display: flex;
     justify-content: center;
-    font-size: 1.5em;
+    font-size: 3vh;
     font-weight: bold;
 
 }
@@ -136,7 +140,7 @@
 }
 
 .tempo{
-    font-size: 3em;
+    font-size: 4.5vh;
     font-weight: bold;
     text-align: center;
 }
