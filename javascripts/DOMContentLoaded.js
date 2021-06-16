@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     
   
     userLoginBtn().addEventListener('click', User.handleLogin)
+    createUserBtn().addEventListener('click', User.handleSubmit)
+
 
     // buttons
     decreaseMetBtn().addEventListener('click', decreaseMetronome)

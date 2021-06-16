@@ -49,10 +49,14 @@ class User {
     static handleSubmit(e) {
         e.preventDefault()
         const username = userLoginField().value
+        const data = {
+            username: username
+        }
+        
         const user = User.findByUsername(username)
         if (user) {User.handleLogin()
         } else {
-            fetch(UserApi.userURL, {
+            fetch(User.userURL, {
                 method: 'POST',
                 headers: {
                     "Content-Type": 'application/json'
@@ -60,6 +64,14 @@ class User {
                 body: JSON.stringify(data)
             })
             .then(resp => resp.json())
+            .then(json => {
+                let newUser = new User(json)
+                usernameDisplay().innerHTML = `Welcome ${newUser.username}`
+                userLoginBtn().style.display = "none"
+                createUserBtn().style.display = "none"
+                userLoginField().style.display = "none"
+                userLoginFieldLabel().style.display = "none"
+            })
         }
     }
 
