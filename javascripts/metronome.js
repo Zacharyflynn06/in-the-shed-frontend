@@ -23,7 +23,7 @@ tempoRange().addEventListener('input', () => {
 })
 
 const decreaseMetronome = () => { 
-    if (bpm <= 20) {return}
+    if (bpm <= 30) {return}
     bpm--
     bpmDisplay().textContent = bpm
     tempoRange().value = bpm

@@ -30,6 +30,9 @@ build side nav bar
 Emin chords not working [x]
 
 handle login
-    render songs on login
-    add username to menu on login
+    render songs on login [x]
+    add username to menu on login [x]
+
+handle song load
+    on click, fetch song objects
     

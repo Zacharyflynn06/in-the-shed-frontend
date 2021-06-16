@@ -1,7 +1,10 @@
 class SongApi {
-    static fetchSong() {
-        fetch('http://localhost:3000/songs/1')
+
+    static url = 'http://localhost:3000/songs/'
+
+    static fetchSong(id) {
+        fetch(`${SongApi.url}${id}`)
         .then(resp => resp.json())
-        .then(json => console.log(json))
+        .then(json => Song.findOrCreateByTitle(json.data.attributes))
     }
 }

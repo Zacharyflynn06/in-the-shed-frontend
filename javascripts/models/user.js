@@ -48,6 +48,8 @@ class User {
                 const li = document.createElement('li')
                 li.innerHTML = `${song.title} - ${song.author}`
                 songListUl().appendChild(li)
+
+                li.addEventListener('click', SongApi.fetchSong(song.id))
             }
 
         } else {
