@@ -1,7 +1,3 @@
-const fetchSong = () => {
-    SongApi.fetchSong()
-
-}
 
 
 const toggleNavBar = () => {

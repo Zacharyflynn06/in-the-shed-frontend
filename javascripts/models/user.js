@@ -6,7 +6,7 @@ class User {
 
     constructor({username, id, songs=[]}) {
         this.username = username
-        this.id = id
+        this.id = parseInt(id)
         this.songs = songs
         User.all.push(this)
     }
@@ -44,12 +44,11 @@ class User {
             songListContainer().prepend(span)
 
             for(const song of songs) {
-                console.log(song)
                 const li = document.createElement('li')
                 li.innerHTML = `${song.title} - ${song.author}`
+                li.id = `song-${song.id}`
                 songListUl().appendChild(li)
-
-                li.addEventListener('click', SongApi.fetchSong(song.id))
+                li.addEventListener('click', (e) => Song.renderSong(e, song))
             }
 
         } else {
