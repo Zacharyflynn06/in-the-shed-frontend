@@ -6,20 +6,15 @@ class UserApi {
         fetch(this.url)
         .then(resp => resp.json())
         // .then(json => {debugger})
-        .then(json => json.data.forEach(userObj =>
-           new User({
-               username: userObj.attributes.username,
-               id: userObj.id,
-               songs: userObj.attributes.songs})) )
-        
+        .then(json => json.data.forEach(userObj => 
+            User.findOrCreateBy(userObj)
+            
+            ))
+        .catch(this.handleError)
     }
 
-
-
-
-
-
-
-
+    static handleError(error) {
+        flash().innerText = error
+    }
 
 }

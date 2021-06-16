@@ -17,16 +17,19 @@ Tools
 
 
 build side nav bar
-    add hamburger to open []
+    add hamburger to open [x]
     add login and create user []
     add song load and save buttons
 
 
-    change # to sharp
+    change # to sharp [x]
 
     fade in + out functionality
 
 
-Emin chords not working
+Emin chords not working [x]
 
+handle login
+    render songs on login
+    add username to menu on login
     

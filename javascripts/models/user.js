@@ -14,7 +14,15 @@ class User {
     }
 
     static findByUsername(username) {
-        return this.all.find(function(user) {user.username === username})
+        return this.all.find(user => user.username === username)
     }
+
+    static findOrCreateBy(userObj) {
+        return this.findByUsername(userObj.username) || new User({
+            username: userObj.attributes.username,
+            id: userObj.id,
+            songs: userObj.attributes.songs})
+    }
+
 
 }

@@ -81,7 +81,7 @@ function dragStart(e) {
 }
 
 function dragEnd() {
-    console.log("end")
+    // console.log("end")
 }
 
 
@@ -89,18 +89,18 @@ function dragEnd() {
 
 function dragEnter(e) {
     e.preventDefault()
-    console.log("enter")
+    // console.log("enter")
     this.className += " hovered"
 }
 
 function dragOver(e) {
     e.preventDefault()
-    console.log("over")
+    // console.log("over")
 }
 
 
 function dragLeave() {
-    console.log("leave")
+    // console.log("leave")
 
     if(this.className === "full-chord hovered"){
         this.className = "full-chord"
@@ -112,7 +112,7 @@ function dragLeave() {
 
 function dragDrop() {
     
-    console.log("drop")
+    // console.log("drop")
     this.innerHTML = ""
     this.append(newVar)
     this.setAttribute("draggable", "true")

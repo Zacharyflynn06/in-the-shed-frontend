@@ -17,6 +17,11 @@ let isPlaying = false
 
 const hamburgerBtn = () => document.querySelector('.hamburger-button')
 const navBar = () => document.querySelector('#nav-container')
+const createUserBtn = () => document.querySelector('.create-user-button')
+const userLoginBtn = () => document.querySelector('.login-button')
+const userLoginField = () => document.querySelector('.user-login-field')
+const userLoginFieldLabel = () => document.querySelector('.user-login-label')
+const usernameDisplay = () => document.querySelector('.username')
 
 // metronome + timer
 const bpmDisplay = () => document.querySelector('.tempo')
