@@ -38,12 +38,18 @@ class User {
 
             User.clearNav(user)
             const songs = user.songs
+            const span = document.createElement('span')
+            span.innerText = "Songs"
+            span.className = "song-list-header"
+            songListContainer().prepend(span)
+
             for(const song of songs) {
                 console.log(song)
                 const li = document.createElement('li')
                 li.innerHTML = `${song.title} - ${song.author}`
                 songListUl().appendChild(li)
             }
+
         } else {
             fetch(User.userURL, {
                 method: 'POST',
@@ -62,9 +68,7 @@ class User {
 
     static clearNav(user) {
         usernameDisplay().innerHTML = `Welcome ${user.username}`
-        createUserBtn().style.display = "none"
-        userLoginField().style.display = "none"
-        userLoginFieldLabel().style.display = "none"
+        loginContainer().style.display = "none" 
     }
 
 

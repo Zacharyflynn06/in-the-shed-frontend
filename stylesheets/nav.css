@@ -44,21 +44,31 @@ height: 20%;
     cursor: pointer;
 }
 
-.songs-list-container{
+.song-list-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    width: 40%;
+    border: 3px solid white;
+}
+
+.song-list-container{
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 50%;
 }
 
-.songs-list {
+.song-list {
     text-align: center;
 }
 
-.songs-list > li {
+.song-list > li {
     text-align: center;
 }
 
-.songs-list > li:hover {
+.song-list > li:hover {
     cursor: pointer;
     transform: scale(1.2);
 }
