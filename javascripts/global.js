@@ -24,6 +24,10 @@ const userLoginFieldLabel = () => document.querySelector('.user-login-label')
 const usernameDisplay = () => document.querySelector('.username')
 const songListUl = () => document.querySelector('.songs-list')
 
+// flash
+
+const flash = () => document.querySelector("#flash")
+
 // metronome + timer
 const bpmDisplay = () => document.querySelector('.tempo')
 const tempoText = () => document.querySelector('.tempo-text')

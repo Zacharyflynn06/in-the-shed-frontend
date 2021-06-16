@@ -13,6 +13,14 @@ body{
     background-image: linear-gradient(to bottom right, var(--one), var(--two), var(--three), var(--four));
 }
 
+#flash {
+    background-color: red;
+}
+
+.hide {
+    display: none;
+}
+
 h1 {
     text-align: center;
     font-size: 2.5em;

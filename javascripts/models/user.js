@@ -26,26 +26,6 @@ class User {
             songs: userObj.attributes.songs})
     }
 
-    static handleLogin(e) {
-        e.preventDefault()
-        console.log("it works")
-        const username = userLoginField().value
-        const user = User.findByUsername(username)
-        const songs = user.songs
-        usernameDisplay().innerHTML = `Welcome ${user.username}`
-        userLoginBtn().style.display = "none"
-        createUserBtn().style.display = "none"
-        userLoginField().style.display = "none"
-        userLoginFieldLabel().style.display = "none"
-    
-        for(const song of songs) {
-            console.log(song)
-            const li = document.createElement('li')
-            li.innerHTML = `${song.title} - ${song.author}`
-            songListUl().appendChild(li)
-        }
-    }
-
     static handleSubmit(e) {
         e.preventDefault()
         const username = userLoginField().value
@@ -54,7 +34,16 @@ class User {
         }
         
         const user = User.findByUsername(username)
-        if (user) {User.handleLogin()
+        if (user) {
+
+            User.clearNav(user)
+            const songs = user.songs
+            for(const song of songs) {
+                console.log(song)
+                const li = document.createElement('li')
+                li.innerHTML = `${song.title} - ${song.author}`
+                songListUl().appendChild(li)
+            }
         } else {
             fetch(User.userURL, {
                 method: 'POST',
@@ -66,13 +55,17 @@ class User {
             .then(resp => resp.json())
             .then(json => {
                 let newUser = new User(json)
-                usernameDisplay().innerHTML = `Welcome ${newUser.username}`
-                userLoginBtn().style.display = "none"
-                createUserBtn().style.display = "none"
-                userLoginField().style.display = "none"
-                userLoginFieldLabel().style.display = "none"
+                User.clearNav(newUser)
             })
         }
+    }
+
+    static clearNav(user) {
+        usernameDisplay().innerHTML = `Welcome ${user.username}`
+        userLoginBtn().style.display = "none"
+        createUserBtn().style.display = "none"
+        userLoginField().style.display = "none"
+        userLoginFieldLabel().style.display = "none"
     }
 
 

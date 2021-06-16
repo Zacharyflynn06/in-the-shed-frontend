@@ -15,6 +15,10 @@ class UserApi {
 
     static handleError(error) {
         flash().innerText = error
+        flash().classList.remove("hide")
+        setTimeout(() => {
+            flash().innerText = ""
+            flash().classList.add("hide")
+        }, 5000)
     }
-
 }
