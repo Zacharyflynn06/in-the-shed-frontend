@@ -3,11 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
     UserApi.fetchUsers()
     
   
-    userLoginBtn().addEventListener('click', User.handleLogin)
-    createUserBtn().addEventListener('click', User.handleSubmit)
-
-
+    
+    
     // buttons
+    createUserBtn().addEventListener('click', User.handleSubmit)
     decreaseMetBtn().addEventListener('click', decreaseMetronome)
     createMeasureBtn().addEventListener('click', renderForm)
     hamburgerBtn().addEventListener('click', toggleNavBar)

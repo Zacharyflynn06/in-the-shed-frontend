@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>In The Shed Frontend</title>
 
+
     <link rel="stylesheet" href="stylesheets/reset_styles.css">
     <link rel="stylesheet" href="stylesheets/index.css">
+    <link rel="stylesheet" href="stylesheets/nav.css">
+
     <link rel="stylesheet" href="stylesheets/song_container.css">
 
     <link rel="stylesheet" href="stylesheets/tools.css">
@@ -18,20 +21,26 @@
 <body>
 
     <div class="master-container">
-        <div id="nav-container" class="closed">
-            <h2>Menu</h2>
-            <span class="username"></span>
-            <div class="buttons-container">
+
+        <div id="nav-container" class="open">
+
+            <div class="nav-header-container">
+                <div class="nav-header">Menu</div>
+                <div class="username"></div>
+            </div>
+            
+            <div class="login-container">
                 <label for="username" class="user-login-label">username</label>
                 <input name="username" type="text" class="user-login-field">
-                <input type="button" class="login-button" value="Login">
-                <input type="button" class="create-user-button" value="Create User">
-
-                
+                <input type="button" class="create-user-button" value="Login/Create User">
             </div>
-            <ul class="songs-list">
+            <div class="songs-list-container">
+                <ul class="songs-list">
 
-            </ul>
+                </ul>
+            </div>
+
+   
         </div>
         <span class="hamburger-button">&#9776</span>
         

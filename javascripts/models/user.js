@@ -62,7 +62,6 @@ class User {
 
     static clearNav(user) {
         usernameDisplay().innerHTML = `Welcome ${user.username}`
-        userLoginBtn().style.display = "none"
         createUserBtn().style.display = "none"
         userLoginField().style.display = "none"
         userLoginFieldLabel().style.display = "none"
