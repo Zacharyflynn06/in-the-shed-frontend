@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     UserApi.fetchUsers()
     
   
-    userLoginBtn().addEventListener('click', handleLogin)
+    userLoginBtn().addEventListener('click', User.handleLogin)
 
     // buttons
     decreaseMetBtn().addEventListener('click', decreaseMetronome)

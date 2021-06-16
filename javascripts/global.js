@@ -22,6 +22,7 @@ const userLoginBtn = () => document.querySelector('.login-button')
 const userLoginField = () => document.querySelector('.user-login-field')
 const userLoginFieldLabel = () => document.querySelector('.user-login-label')
 const usernameDisplay = () => document.querySelector('.username')
+const songListUl = () => document.querySelector('.songs-list')
 
 // metronome + timer
 const bpmDisplay = () => document.querySelector('.tempo')
