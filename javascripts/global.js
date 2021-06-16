@@ -9,6 +9,8 @@ const low = new Audio("sounds/metronome_samples/low.wav")
 // song
 const songContainer = () => document.querySelector('.song-container')
 const loadSongBtn = () => document.querySelector('.load-button')
+const songHeader = () => document.querySelector('.song-header')
+const songTitle = () => document.querySelector('.song-title')
 
 let isPlaying = false
 

@@ -1,9 +1,5 @@
 /* song */
 
-.song-title{
-    font-size: 5vh;
-}
-
 
 .song-header{
     height: 12.5%;
@@ -11,9 +7,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    
+}
+.song-title{
+    font-size: 5vh;
     
 }
 
+.author{
+    font-size: 3vh;
+    
+}
 .time-signature {
     display: flex;
     flex-direction: column;

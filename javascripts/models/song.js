@@ -43,14 +43,19 @@ class Song {
     static renderSong(e, song) {
  
         const songObj = Song.findById(song.id)
+        // title
+        songTitle().innerHTML = songObj.title
         debugger
+        const span = document.createElement("span")
+        span.innerHTML = songObj.author
+        span.className = "author"
+        songHeader().appendChild(span)
+        
         // time
         bpm = songObj.tempo
         tempoRange().value = bpm
-        bpmDisplay().innerHTML = bpm
-        setMetMarking()
-        clickTrack.interval = 60000/bpm
-        timeSig().innerHTML = songObj.time_signature
+        updateTempo()
+        // createTempo()
 
     }
 

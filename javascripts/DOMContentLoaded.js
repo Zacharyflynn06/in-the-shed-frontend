@@ -20,5 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // metronome
     tempoRange().addEventListener('input', changeMetByRange)
+    decreaseMetBtn().addEventListener('click', decreaseMetronome)
+    increaseMetBtn().addEventListener('click', increaseMetronome)
+    startButton().addEventListener('click', startMetronome)
     createTempo()
 })
