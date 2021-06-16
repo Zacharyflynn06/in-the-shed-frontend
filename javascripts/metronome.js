@@ -15,29 +15,30 @@ const setMetMarking = () => {
     tempoText().innerText = metMarking
 }
 
-tempoRange().addEventListener('input', () => {
-    bpm = tempoRange().value
+const updateTempo = () => {
     bpmDisplay().textContent = bpm
     setMetMarking()
     clickTrack.interval = 60000/bpm
-})
+
+}
+
+const changeMetByRange = () => {
+    bpm = tempoRange().value
+    updateTempo()
+}
 
 const decreaseMetronome = () => { 
     if (bpm <= 30) {return}
     bpm--
-    bpmDisplay().textContent = bpm
     tempoRange().value = bpm
-    setMetMarking()
-    clickTrack.interval = 60000/bpm
+    updateTempo()
 }
 
 increaseMetBtn().addEventListener('click', () => {
     if (bpm >= 250) {return}
     bpm++
-    bpmDisplay().textContent = bpm
     tempoRange().value = bpm
-    setMetMarking()
-    clickTrack.interval = 60000/bpm
+    updateTempo()
 })
 
 startButton().addEventListener('click', () => {

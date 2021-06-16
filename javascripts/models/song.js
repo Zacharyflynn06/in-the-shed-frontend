@@ -44,10 +44,17 @@ class Song {
  
         const songObj = Song.findById(song.id)
         debugger
-        bpmDisplay().innerText = songObj.tempo
-
+        // time
+        bpm = songObj.tempo
+        tempoRange().value = bpm
+        bpmDisplay().innerHTML = bpm
+        setMetMarking()
+        clickTrack.interval = 60000/bpm
+        timeSig().innerHTML = songObj.time_signature
 
     }
+
+    
 
     
 }

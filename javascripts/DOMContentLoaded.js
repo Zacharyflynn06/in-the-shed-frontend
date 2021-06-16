@@ -15,5 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
     backBtn().addEventListener('click', cardFlip)
     createChordBtn().addEventListener('click', renderChord)
     // loadSongBtn().addEventListener("click", fetchSong)
+
+
+
+    // metronome
+    tempoRange().addEventListener('input', changeMetByRange)
     createTempo()
 })
