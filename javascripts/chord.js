@@ -41,12 +41,8 @@ const playChord = (root, quality) => {
 
     newChord.play()
 
-    // setTimeout(() => {
-    //     newChord.pause()
-    //     newChord.currentTime = 0
-    // }, 1000);
-
     newChord.currentTime = 0
-    // isPlaying = newChord
+    
+    // createChordBtn().addEventListener('click', newChord.pause())
 }
 
