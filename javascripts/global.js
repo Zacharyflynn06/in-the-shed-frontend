@@ -67,4 +67,5 @@ let metMarking = 'Moderato'
 let clickCount = 0
 let topNum = timeSig().value.split("/")[0]
 let bottomNum = timeSig().value.split("/")[1] 
-let measure = []
+let beatsPerBar = []
+let measureCount = 1
