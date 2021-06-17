@@ -2,7 +2,7 @@ class Song {
 
     static all = []
 
-    constructor({user, id, title, author, tempo, time_signature, measures = {}}){
+    constructor({user, id, title, author, tempo, time_signature, measures = []}){
         this.user = user
         this.id = parseInt(id)
         this.title = title
@@ -67,6 +67,8 @@ class Song {
             div.style.gridArea = `m${x}`
             div.innerHTML = measure.chords[0].name
             div.id = `${x}`
+            div.dataset.root = measure.chords[0].root
+            div.dataset.quality = measure.chords[0].quality
             measuresContainer().appendChild(div)
             x++
         }

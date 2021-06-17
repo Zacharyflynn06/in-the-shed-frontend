@@ -1,9 +1,5 @@
-const playChord = (root, quality) => {
+const buildChordUrl = (root, quality) => {
 
-    // if(isPlaying !== false) {
-    //     debugger
-    //     isPlaying.stop()
-    // }
 
     switch(root){
         case "A#":
@@ -35,14 +31,13 @@ const playChord = (root, quality) => {
             break
     }
 
+    if(quality === "maj") quality = ""
     const newQuality = quality.replace("#", "sharp")
-    console.log(newQuality)
-    const newChord = new Audio(`sounds/chords/${root}/${root}${newQuality}.wav`)
 
-    newChord.play()
 
-    newChord.currentTime = 0
-    
-    // createChordBtn().addEventListener('click', newChord.pause())
+    const chordUrl = `sounds/chords/${root}/${root}${newQuality}.wav`
+
+    return chordUrl
+
 }
 

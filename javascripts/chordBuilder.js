@@ -14,6 +14,8 @@ const renderChord = () => {
     const div = document.createElement("div")
     div.innerHTML = `${root}${type}${quality}`
     div.className = "new-chord"
+    div.dataset.root = root
+    div.dataset.quality = quality
     div.setAttribute("draggable", "true")
     chordContainer().appendChild(div)
 

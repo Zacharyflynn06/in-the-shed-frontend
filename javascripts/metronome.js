@@ -48,7 +48,10 @@ const startMetronome = () => {
     
     chordMatrix = []
     chordStructure().forEach(div => {
-        chordMatrix.push(div.innerHTML)
+        let newRoot = div.dataset.root
+        let newQuality = div.dataset.quality
+        let info = [newRoot, newQuality]
+        chordMatrix.push(info)
     })   
 
     console.log(measureCounter)
@@ -100,10 +103,11 @@ const startTime = () => {
     if (clickCount === 0) {
         hi.play()            
         hi.currentTime = 0 
-        const test = new Audio(`sounds/chords/${chordMatrix[i].replace(/['"]+/g, '')}/${chordMatrix[i].replace(/['"]+/g, '')}.wav`)  
-        test.play() 
+        const soundFile = buildChordUrl(chordMatrix[i][0], chordMatrix[i][1])
+        const playChord = new Audio(soundFile)
+        playChord.play()
         setTimeout(() => {
-            test.pause()
+            playChord.pause()
         }, (60000/bpm) * beatsPerBar.length);
         i++
     } else {
