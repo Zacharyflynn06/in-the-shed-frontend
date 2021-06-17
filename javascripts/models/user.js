@@ -36,6 +36,8 @@ class User {
         const data = {
             username: username
         }
+
+        addCrudButtons()
         
         const user = User.findByUsername(username)
         if (user) {

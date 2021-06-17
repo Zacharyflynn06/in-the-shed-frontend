@@ -13,7 +13,7 @@ const songContainer = () => document.querySelector('.song-container')
 const loadSongBtn = () => document.querySelector('.load-button')
 const songHeader = () => document.querySelector('.song-header')
 const songTitle = () => document.querySelector('.song-title')
-
+const buttonsContainer = () => document.querySelector('.buttons-container')
 let isPlaying = false
 
 
