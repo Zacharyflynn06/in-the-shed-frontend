@@ -36,7 +36,8 @@ const renderForm = () => {
     clickCount = 0
     measuresContainer().innerHTML = ""
 
-    const n = measureField().value
+    let n = measureField().value
+    if(n > 32) {n = 32}
     const s = timeSig().value
     const newString = s.replace('/', "<br>")
 

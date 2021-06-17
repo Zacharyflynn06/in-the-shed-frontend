@@ -123,6 +123,11 @@
     width: 100%;
 }
 
+.metronome-settings {
+    display: flex;
+    height: 30%;
+}
+
 .metronome-text-container{
     display: flex;
     flex-direction: column;

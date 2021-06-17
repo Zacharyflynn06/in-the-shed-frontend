@@ -26,6 +26,7 @@
     justify-content: center;
     grid-area: ts;
     font-size: 1.5em;
+    text-decoration: none;
 }
 
 .measures-container {

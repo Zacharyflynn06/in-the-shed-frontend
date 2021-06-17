@@ -2,7 +2,7 @@ class Song {
 
     static all = []
 
-    constructor({user, id, title, author, tempo, time_signature, measures = []}){
+    constructor({user, id, title, author, tempo, time_signature, measures = {}}){
         this.user = user
         this.id = parseInt(id)
         this.title = title
@@ -43,9 +43,8 @@ class Song {
     static renderSong(e, song) {
  
         const songObj = Song.findById(song.id)
-        // title
         songTitle().innerHTML = songObj.title
-        debugger
+    
         const span = document.createElement("span")
         span.innerHTML = songObj.author
         span.className = "author"
@@ -56,6 +55,22 @@ class Song {
         tempoRange().value = bpm
         updateTempo()
         // createTempo()
+        // let formLength = songObj.measures.length
+
+        const measures = songObj.measures
+        debugger
+        // measures
+
+        let i = 1
+        for(measure of measures) {
+            const div = document.createElement("div")
+            div.className = `full-chord`
+            div.style.gridArea = `m${i}`
+            div.innerHTML = measure.chords[0].name
+            div.id = `${i}`
+            measuresContainer().appendChild(div)
+            i++
+        }
 
     }
 
