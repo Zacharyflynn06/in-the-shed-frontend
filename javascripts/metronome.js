@@ -45,6 +45,12 @@ const startMetronome = () => {
     clickCount = 0
     measureCounter = 1
     i = 0
+    
+    chordMatrix = []
+    chordStructure().forEach(div => {
+        chordMatrix.push(div.innerHTML)
+    })   
+
     console.log(measureCounter)
     if (!isRunning) {
         clickTrack.start()
@@ -73,7 +79,7 @@ let measuresInForm = 4
 // how many beats per measure
 
 
-const chordMatrix = ["A", "B", "C", "D"]
+
 let i=0
 
 
@@ -83,19 +89,14 @@ const startTime = () => {
     if(measureCounter === measuresInForm){
         measureCounter = 0
         i = 0
-
-        console.log(i)
-        console.log(measureCounter)
     }
 
     if( clickCount === beatsPerBar.length) {
         clickCount = 0
         measureCounter ++
-      
-        // console.log(i)
     }
 
-    // clicks
+    // sounds
     if (clickCount === 0) {
         hi.play()            
         hi.currentTime = 0 

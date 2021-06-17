@@ -33,6 +33,10 @@ height: 20%;
     transition: transform 200ms;
 }
 
+.hide{
+    display: none;
+}
+
 .hamburger-button{
     font-size: 4vh;
     color: white;

@@ -3,6 +3,8 @@
 const hi = new Audio('sounds/metronome_samples/hi.wav')
 const low = new Audio("sounds/metronome_samples/low.wav")
 
+        // const test = new Audio(`sounds/chords/${chordMatrix[i].replace(/['"]+/g, '')}/${chordMatrix[i].replace(/['"]+/g, '')}.wav`)  
+
 
 
 
@@ -51,6 +53,11 @@ const nextBtn = () => document.querySelector('.next-btn')
 const backBtn = () => document.querySelector('.back-btn')
 const timeSig = () => document.querySelector('.time-sig-field')
 const timeSigContainer = () => document.querySelector('time-signiture-container')
+const chordStructure = () => document.querySelectorAll('.full-chord')
+
+
+
+
 
 // chord builder
 const createChordBtn = () => document.querySelector('.create-chord-button')
@@ -67,6 +74,6 @@ let metMarking = 'Moderato'
 let clickCount = 0
 let topNum = timeSig().value.split("/")[0]
 let bottomNum = timeSig().value.split("/")[1] 
-const measure = []
-let beatsPerBar = []
+let chordMatrix = []
+const beatsPerBar = []
 let measureCounter = 1

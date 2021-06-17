@@ -59,17 +59,19 @@ class Song {
 
         const measures = songObj.measures
         // measures
-
-        let i = 1
-        for(measure of measures) {
+        debugger
+        let x = 1
+        for(let measure of measures) {
             const div = document.createElement("div")
             div.className = `full-chord`
-            div.style.gridArea = `m${i}`
+            div.style.gridArea = `m${x}`
             div.innerHTML = measure.chords[0].name
-            div.id = `${i}`
+            div.id = `${x}`
             measuresContainer().appendChild(div)
-            i++
+            x++
         }
+
+
 
     }
 

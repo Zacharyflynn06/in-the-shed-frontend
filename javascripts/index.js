@@ -1,4 +1,4 @@
-
+form = document.querySelectorAll('.full-chord')
 
 const toggleNavBar = () => {
     if(navBar().className === "closed"){

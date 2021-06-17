@@ -28,7 +28,11 @@ class User {
 
     static handleSubmit(e) {
         e.preventDefault()
+
         const username = userLoginField().value
+
+        if(!username) return
+        
         const data = {
             username: username
         }
