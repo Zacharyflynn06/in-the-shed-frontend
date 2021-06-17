@@ -58,7 +58,6 @@ class Song {
         // let formLength = songObj.measures.length
 
         const measures = songObj.measures
-        debugger
         // measures
 
         let i = 1

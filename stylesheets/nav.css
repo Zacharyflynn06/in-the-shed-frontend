@@ -7,6 +7,7 @@ height: 20%;
 }
 
 .nav-header{
+    display: flex;
     font-size: 4vh;
     align-items: center;
     justify-content: center;
