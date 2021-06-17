@@ -43,8 +43,9 @@ const increaseMetronome = () => {
 
 const startMetronome = () => {
     clickCount = 0
-    measureCount = 1
-    console.log(measureCount)
+    measureCounter = 1
+    i = 0
+    console.log(measureCounter)
     if (!isRunning) {
         clickTrack.start()
         isRunning = true
@@ -58,7 +59,6 @@ const startMetronome = () => {
 
 
 const createTempo = () => {
-    beatsPerBar = []
     topNum = timeSig().value.split("/")[0]
     for(i = 1; i <= topNum; i++) {
         if( i===1 ){
@@ -68,29 +68,43 @@ const createTempo = () => {
         }
     }
 }
+// how many measures in song
+let measuresInForm = 4
+// how many beats per measure
 
-let formCount = 4
 
-chordMatrix = ["A", "D", "A", "D"]
+const chordMatrix = ["A", "B", "C", "D"]
+let i=0
 
 
 const startTime = () => {
 
     
-    if(measureCount === formCount){
-        measureCount = 0
+    if(measureCounter === measuresInForm){
+        measureCounter = 0
+        i = 0
+
+        console.log(i)
+        console.log(measureCounter)
     }
 
-    if( clickCount === beatsPerBar.length ) {
+    if( clickCount === beatsPerBar.length) {
         clickCount = 0
-        measureCount ++
-        console.log(measureCount)
+        measureCounter ++
+      
+        // console.log(i)
     }
 
     // clicks
     if (clickCount === 0) {
         hi.play()            
-        hi.currentTime = 0        
+        hi.currentTime = 0 
+        const test = new Audio(`sounds/chords/${chordMatrix[i].replace(/['"]+/g, '')}/${chordMatrix[i].replace(/['"]+/g, '')}.wav`)  
+        test.play() 
+        setTimeout(() => {
+            test.pause()
+        }, (60000/bpm) * beatsPerBar.length);
+        i++
     } else {
         low.play()
         low.currentTime = 0 
