@@ -56,20 +56,9 @@ class User {
             }
 
         } else {
-            fetch(User.userURL, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(resp => resp.json())
-            .then(json => {
-                let newUser = new User(json)
-                User.clearNav(newUser)
-                currentUser = newUser
-            })
+            UserApi.createUser(username)
         }
+
     }
 
     static clearNav(user) {

@@ -13,6 +13,23 @@ class UserApi {
         .catch(this.handleError)
     }
 
+    static createUser(username) {
+        fetch(User.userURL, {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify({username: username})
+        })
+        .then(resp => resp.json())
+        .then(json => {
+            let newUser = new User(json)
+            User.clearNav(newUser)
+            currentUser = newUser
+        })
+    }
+    
+
     static handleError(error) {
         flash().innerText = error
         flash().classList.remove("hide")
