@@ -42,19 +42,14 @@ const increaseMetronome = () => {
 }
 
 const startMetronome = () => {
+    beatsPerBar = []
     clickCount = 0
     measureCounter = 1
-    i = 0
+    cl = 0
+    createTempo()
     
-    chordMatrix = []
-    chordStructure().forEach(div => {
-        let newRoot = div.dataset.root
-        let newQuality = div.dataset.quality
-        let info = [newRoot, newQuality]
-        chordMatrix.push(info)
-    })   
+    measuresInForm = chordStructure().length
 
-    console.log(measureCounter)
     if (!isRunning) {
         clickTrack.start()
         isRunning = true
@@ -69,7 +64,7 @@ const startMetronome = () => {
 
 const createTempo = () => {
     topNum = timeSig().value.split("/")[0]
-    for(i = 1; i <= topNum; i++) {
+    for(let i = 1; i <= topNum; i++) {
         if( i===1 ){
             beatsPerBar.push(1)
         } else {
@@ -77,21 +72,14 @@ const createTempo = () => {
         }
     }
 }
-// how many measures in song
-let measuresInForm = 4
-// how many beats per measure
 
 
-
-let i=0
 
 
 const startTime = () => {
-
-    
     if(measureCounter === measuresInForm){
-        measureCounter = 0
-        i = 0
+        measureCounter = 1
+        cl = 0
     }
 
     if( clickCount === beatsPerBar.length) {
@@ -101,15 +89,25 @@ const startTime = () => {
 
     // sounds
     if (clickCount === 0) {
+
+        if (chordStructure()[cl].dataset.life === "alive") {
+
+            const currentChord = chordStructure()[cl]
+            const root = currentChord.dataset.root
+            const quality = currentChord.dataset.quality
+            const soundFile = buildChordUrl(root, quality)
+            const playChord = new Audio(soundFile)
+            playChord.play()
+    
+            setTimeout(() => {
+                playChord.pause()
+            }, (60000/bpm) * beatsPerBar.length);
+        }
+
         hi.play()            
         hi.currentTime = 0 
-        const soundFile = buildChordUrl(chordMatrix[i][0], chordMatrix[i][1])
-        const playChord = new Audio(soundFile)
-        playChord.play()
-        setTimeout(() => {
-            playChord.pause()
-        }, (60000/bpm) * beatsPerBar.length);
-        i++
+
+        cl++
     } else {
         low.play()
         low.currentTime = 0 
@@ -122,9 +120,3 @@ const startTime = () => {
 }
 
 const clickTrack = new Timer(startTime, 60000/bpm, true)
-
-
-const player = () => {
-
-
-}

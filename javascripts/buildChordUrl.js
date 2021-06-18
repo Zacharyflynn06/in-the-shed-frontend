@@ -32,8 +32,8 @@ const buildChordUrl = (root, quality) => {
     }
 
     if(quality === "maj") quality = ""
+    
     const newQuality = quality.replace("#", "sharp")
-
 
     const chordUrl = `sounds/chords/${root}/${root}${newQuality}.wav`
 

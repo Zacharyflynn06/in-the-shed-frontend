@@ -52,8 +52,8 @@ const card = () => document.querySelector('.card')
 const nextBtn = () => document.querySelector('.next-btn')
 const backBtn = () => document.querySelector('.back-btn')
 const timeSig = () => document.querySelector('.time-sig-field')
-const timeSigContainer = () => document.querySelector('time-signiture-container')
-const chordStructure = () => document.querySelectorAll('.full-chord')
+const timeSigContainer = () => document.querySelector('time-signature-container')
+const chordStructure = () => document.querySelectorAll('[data-life]')
 
 
 
@@ -75,5 +75,7 @@ let clickCount = 0
 let topNum = timeSig().value.split("/")[0]
 let bottomNum = timeSig().value.split("/")[1] 
 let chordMatrix = []
-const beatsPerBar = []
+let beatsPerBar = []
 let measureCounter = 1
+let cl =0
+let measuresInForm = 0

@@ -23,7 +23,7 @@ const renderChord = () => {
     newVar = newChord
     newChord.addEventListener('dragstart', dragStart)
     newChord.addEventListener('dragend', dragEnd)
-    playChord(`${root}${type}`, `${quality}`)
+    // playChord(`${root}${type}`, `${quality}`)
     
 }
 
@@ -49,6 +49,7 @@ const renderForm = () => {
         div.style.gridArea = `m${i}`
         div.innerHTML = `${i}`
         div.id = `${i}`
+        div.dataset.life = "dead"
         measuresContainer().appendChild(div) 
     }
 
@@ -121,6 +122,9 @@ function dragDrop() {
     this.setAttribute("draggable", "true")
     this.className = "full-chord"
     this.innerHTML = newVar.innerHTML
+    this.dataset.root = newVar.dataset.root
+    this.dataset.quality = newVar.dataset.quality
+    this.dataset.life = "alive"
 
     const fullChord = () => document.querySelector('.full-chord')
     fullChord().addEventListener('dragstart', dragStart)

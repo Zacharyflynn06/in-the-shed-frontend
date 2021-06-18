@@ -59,7 +59,6 @@ class Song {
 
         const measures = songObj.measures
         // measures
-        debugger
         let x = 1
         for(let measure of measures) {
             const div = document.createElement("div")
@@ -69,6 +68,7 @@ class Song {
             div.id = `${x}`
             div.dataset.root = measure.chords[0].root
             div.dataset.quality = measure.chords[0].quality
+            div.dataset.life = "alive"
             measuresContainer().appendChild(div)
             x++
         }
