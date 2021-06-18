@@ -1,6 +1,5 @@
 let newVar = null
 const renderChord = () => {
-
     chordContainer().innerHTML = ""
 
     let root = rootNote().value
@@ -9,10 +8,9 @@ const renderChord = () => {
 
     if(type === "♮") type = ""
     if(quality === "maj") quality = ""
-    
-
+    root = root + type
     const div = document.createElement("div")
-    div.innerHTML = `${root}${type}${quality}`
+    div.innerHTML = `${root}${quality}`
     div.className = "new-chord"
     div.dataset.root = root
     div.dataset.quality = quality
@@ -23,8 +21,9 @@ const renderChord = () => {
     newVar = newChord
     newChord.addEventListener('dragstart', dragStart)
     newChord.addEventListener('dragend', dragEnd)
-    // playChord(`${root}${type}`, `${quality}`)
-    
+    const url = buildChordUrl(root, quality) 
+    const chordVar = new Audio(url) 
+    chordVar.play()
 }
 
 

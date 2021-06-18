@@ -1,6 +1,5 @@
 const buildChordUrl = (root, quality) => {
 
-
     switch(root){
         case "A#":
             root = "Bb"
@@ -36,7 +35,7 @@ const buildChordUrl = (root, quality) => {
     const newQuality = quality.replace("#", "sharp")
 
     const chordUrl = `sounds/chords/${root}/${root}${newQuality}.wav`
-
+    
     return chordUrl
 
 }
