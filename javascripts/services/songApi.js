@@ -36,17 +36,16 @@ class SongApi {
             SongApi.handleError("Please enter your songs title!")
         }
 
-        const measures = []
+        const measures = ["measure"]
         
         const attributes = {
             user_id: currentUser.id,
             title: title,
             author: "Zac",
             tempo:  bpm,
-            measures: measures,
-            time_signature: timeSig().value
+            time_signature_id: 1,
+            measures: [{song_id: 4, chord: "C"}]
         }
-
 
         const song = Song.findByTitle(title)
 
@@ -59,16 +58,20 @@ class SongApi {
                 headers: {
                     "Content-Type": 'application/json'
                 },
-                body: JSON.stringify(attributes)
+                body: JSON.stringify(attributes),
+                
             })
             .then(resp => resp.json())
             .then(json => {
                 // let newSong = new Song(json)
-                console.log(json)
-                {debugger}
 
+                    console.log(json)
+                    
+                
    
             })
+            .catch(this.handleError)
+
         }
 
 

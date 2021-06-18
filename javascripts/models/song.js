@@ -41,8 +41,8 @@ class Song {
     }
 
     static renderSong(e, song) {
- 
         const songObj = Song.findById(song.id)
+        debugger
         songTitle().innerHTML = songObj.title
     
         const span = document.createElement("span")
