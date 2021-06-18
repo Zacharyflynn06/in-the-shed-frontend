@@ -34,5 +34,8 @@ handle login
     add username to menu on login [x]
 
 handle song load
-    on click, fetch song objects
+    on click, fetch song objects [x]
+
+
+chord player drops a chord? []
     

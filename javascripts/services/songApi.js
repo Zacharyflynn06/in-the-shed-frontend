@@ -57,7 +57,7 @@ class SongApi {
             measures: measures
         }
 
-        const song = Song.findByTitle(title)
+        let song = Song.findByTitle(title)
 
         if (song) {
             // handle update
@@ -72,11 +72,11 @@ class SongApi {
                 
             })
             .then(resp => resp.json())
-            .then(json => {
-                let song = new Song(json)
-                Song.appendSongToNav(song)
-            })
+            .then(json => console.log(json))
             .catch(this.handleError)
+
+            song = new Song(attributes)
+            Song.appendSongToNav(song)
         }
     }
 
@@ -90,7 +90,7 @@ class SongApi {
         })
         .then(resp => resp.json())
         .then(json => {
-            renderForm()
+            {debugger}
         })
     }
 }

@@ -58,6 +58,10 @@ class Song {
 
     }
 
+    static removeSong(song) {
+
+    }
+
     static appendSongToNav(song) {
         
         const li = document.createElement('li')
