@@ -26,4 +26,52 @@ class SongApi {
             flash().classList.add("hide")
         }, 5000)
     }
+
+
+    static handleSubmit(e) {
+        e.preventDefault()
+        const title = songTitle().value
+        
+        if(title === "Song Title") {
+            SongApi.handleError("Please enter your songs title!")
+        }
+
+        const measures = []
+        
+        const attributes = {
+            user_id: currentUser.id,
+            title: title,
+            author: "Zac",
+            tempo:  bpm,
+            measures: measures,
+            time_signature: timeSig().value
+        }
+
+
+        const song = Song.findByTitle(title)
+
+        if (song) {
+            // handle update
+        } else {
+            // handle create
+            fetch(SongApi.url, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": 'application/json'
+                },
+                body: JSON.stringify(attributes)
+            })
+            .then(resp => resp.json())
+            .then(json => {
+                // let newSong = new Song(json)
+                console.log(json)
+                {debugger}
+
+   
+            })
+        }
+
+
+
+    }
 }

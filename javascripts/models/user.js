@@ -37,7 +37,8 @@ class User {
             username: username
         }
 
-        addCrudButtons()
+        saveBtn().classList.remove("hide")
+        deleteBtn().classList.remove("hide")
         
         const user = User.findByUsername(username)
         if (user) {
@@ -45,6 +46,7 @@ class User {
             User.clearNav(user)
             const songs = user.songs
             const span = document.createElement('span')
+            currentUser = user
             span.innerText = "Songs"
             span.className = "song-list-header"
             songListContainer().prepend(span)
@@ -69,6 +71,7 @@ class User {
             .then(json => {
                 let newUser = new User(json)
                 User.clearNav(newUser)
+                currentUser = newUser
             })
         }
     }

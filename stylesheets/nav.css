@@ -8,7 +8,7 @@ height: 20%;
 
 .nav-header{
     display: flex;
-    font-size: 4vh;
+    font-size: 2vw;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -28,13 +28,9 @@ height: 20%;
     height: 100vh;
     background-color: black;
     color: white;
-    width: 15%;
+    width: 20%;
     transform: translateX(0px);
     transition: transform 200ms;
-}
-
-.hide{
-    display: none;
 }
 
 .hamburger-button{

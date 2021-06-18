@@ -51,7 +51,8 @@
     
     width: 30%;
     height: 15%;
-    font-size: 3vh
+    font-size: 3vh;
+    border: solid black 2px
 }
 
 .measure-field-label {
