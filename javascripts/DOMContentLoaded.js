@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     backBtn().addEventListener('click', cardFlip)
     createChordBtn().addEventListener('click', renderChord)
     saveBtn().addEventListener('click', SongApi.handleSubmit)
-    // deleteBtn().addEventListener('click', )
+    deleteBtn().addEventListener('click', SongApi.handleDelete)
 
 
     // metronome

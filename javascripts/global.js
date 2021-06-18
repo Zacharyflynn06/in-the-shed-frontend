@@ -7,6 +7,7 @@ const low = new Audio("sounds/metronome_samples/low.wav")
 
 // user
 let currentUser = ""
+let currentSong = ""
 
 
 // song
@@ -14,10 +15,11 @@ const songContainer = () => document.querySelector('.song-container')
 const loadSongBtn = () => document.querySelector('.load-button')
 const songHeader = () => document.querySelector('.song-header')
 const songTitle = () => document.querySelector('.song-title')
+const songAuthor = () => document.querySelector('.author')
 const buttonsContainer = () => document.querySelector('.buttons-container')
 const saveBtn = () => document.querySelector('#save-button')
 const deleteBtn = () => document.querySelector('#delete-button')
-const timeSignature = () => ""
+
 
 
 // Nav-bar
@@ -82,3 +84,4 @@ let beatsPerBar = []
 let measureCounter = 1
 let cl =0
 let measuresInForm = 0
+let timeSignature = ""

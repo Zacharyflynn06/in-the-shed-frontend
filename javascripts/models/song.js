@@ -42,14 +42,12 @@ class Song {
 
     static renderSong(e, song) {
         const songObj = Song.findById(song.id)
-        debugger
-        songTitle().innerHTML = songObj.title
-    
-        const span = document.createElement("span")
-        span.innerHTML = songObj.author
-        span.className = "author"
-        songHeader().appendChild(span)
-        
+
+        currentSong = songObj
+
+        songTitle().value = songObj.title
+        songAuthor().value = songObj.author
+
         // time
         bpm = songObj.tempo
         tempoRange().value = bpm
@@ -72,12 +70,26 @@ class Song {
             measuresContainer().appendChild(div)
             x++
         }
-
-
-
     }
 
-    
+    static appendSongToNav(song) {
+        
+        const li = document.createElement('li')
+        li.innerHTML = `${song.title} - ${song.author}`
+        li.id = `song-${song.id}`
+        songListUl().appendChild(li)
+        li.addEventListener('click', (e) => Song.renderSong(e, song))
+    }
+
+    static renderTimeSignature() {
+        const newString = timeSignature.replace('/', "<br>")
+        const h2 = document.createElement("h2")
+        h2.innerHTML = newString
+        h2.className = "time-signature"
+        h2.style.gridArea = 'ts'
+        measuresContainer().appendChild(h2)
+        
+    }
 
     
 }

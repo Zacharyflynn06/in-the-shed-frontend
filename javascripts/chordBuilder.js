@@ -40,8 +40,9 @@ const renderForm = () => {
 
     let n = measureField().value
     if(n > 32) {n = 32}
-    const s = timeSig().value
-    const newString = s.replace('/', "<br>")
+
+    timeSignature = timeSig().value
+    
 
     for(let i=1; i <= n; i++) {
         const div = document.createElement("div")
@@ -61,12 +62,7 @@ const renderForm = () => {
         empty.addEventListener('drop', dragDrop)
     }
 
-
-    const h2 = document.createElement("h2")
-    h2.innerHTML = newString
-    h2.className = "time-signature"
-    h2.style.gridArea = 'ts'
-    measuresContainer().appendChild(h2)
+    Song.renderTimeSignature()
 }
 
 // drag and drop

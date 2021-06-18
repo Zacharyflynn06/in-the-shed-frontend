@@ -34,17 +34,27 @@ class SongApi {
         
         if(title === "Song Title") {
             SongApi.handleError("Please enter your songs title!")
+            return
         }
 
-        const measures = ["measure"]
-        
+        const measures = []
+
+        for(let div of chordStructure()){
+            let chord = {
+                name: div.innerHTML,
+                root: div.dataset.root,
+                quality: div.dataset.quality
+            }
+            measures.push(chord)
+        }
+
         const attributes = {
             user_id: currentUser.id,
             title: title,
             author: "Zac",
             tempo:  bpm,
-            time_signature_id: 1,
-            measures: [{song_id: 4, chord: "C"}]
+            time_signature: timeSig().value,
+            measures: measures
         }
 
         const song = Song.findByTitle(title)
@@ -63,18 +73,24 @@ class SongApi {
             })
             .then(resp => resp.json())
             .then(json => {
-                // let newSong = new Song(json)
-
-                    console.log(json)
-                    
-                
-   
+                let song = new Song(json)
+                Song.appendSongToNav(song)
             })
             .catch(this.handleError)
-
         }
+    }
 
-
-
+    static handleDelete = (e) => {
+        debugger
+        fetch(SongApi.url + `/${currentSong.id}`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": 'application/json'
+            }
+        })
+        .then(resp => resp.json())
+        .then(json => {
+            renderForm()
+        })
     }
 }

@@ -52,11 +52,7 @@ class User {
             songListContainer().prepend(span)
 
             for(const song of songs) {
-                const li = document.createElement('li')
-                li.innerHTML = `${song.title} - ${song.author}`
-                li.id = `song-${song.id}`
-                songListUl().appendChild(li)
-                li.addEventListener('click', (e) => Song.renderSong(e, song))
+                Song.appendSongToNav(song)
             }
 
         } else {

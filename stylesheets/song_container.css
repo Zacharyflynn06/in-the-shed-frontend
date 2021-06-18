@@ -5,7 +5,7 @@
 }
 
 .song-header{
-    height: 12.5%;
+    height: 12%;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -14,15 +14,24 @@
     
 }
 .song-title{
-    font-size: 4vw;
-    height: 100%;
+    font-size: 4vh;
+    height: 50%;
     width: 80%;
     border: 0;
     text-align: center;
+    padding: 0;
+    margin: 0
 }
 
 .author{
-    font-size: 3vh;
+    font-size: 2vh;
+
+    height: 40%;
+    width: 80%;
+    border: 0;
+    text-align: center;
+    padding: 0;
+    margin: 0
 }
 
 
@@ -38,6 +47,7 @@
 
 .measures-container {
     height: 80%;
+    width: 100%;
     display: grid;
     grid-template-columns: 6% 20% 20% 20% 20% 6%;
     grid-template-rows: 12% 12% 12% 12% 12% 12% 12% 12%;
