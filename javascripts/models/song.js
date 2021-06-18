@@ -28,7 +28,7 @@ class Song {
     }
 
     static findOrCreateByTitle(songObj) {
-        const song = this.findByTitle(songObj.title) || new Song({
+        return this.findByTitle(songObj.title) || new Song({
             user: User.findByUsername(songObj.attributes.user.username),
             id: songObj.id,
             title: songObj.attributes.title,
@@ -48,15 +48,37 @@ class Song {
         songTitle().value = songObj.title
         songAuthor().value = songObj.author
 
-        // time
         bpm = songObj.tempo
         tempoRange().value = bpm
         updateTempo()
-        // createTempo()
-        // let formLength = songObj.measures.length
+  
+        Song.renderTimeSignature(songObj.time_signature)
 
-        const measures = songObj.measures
-        // measures
+        Song.renderMeasures(songObj.measures)
+
+    }
+
+    static appendSongToNav(song) {
+        
+        const li = document.createElement('li')
+        li.innerHTML = `${song.title} - ${song.author}`
+        li.id = `song-${song.id}`
+        songListUl().appendChild(li)
+        li.addEventListener('click', (e) => Song.renderSong(e, song))
+    }
+
+    static renderTimeSignature(ts) {
+        const newString = ts.replace('/', "<br>")
+        const h2 = document.createElement("h2")
+        h2.innerHTML = newString
+        h2.className = "time-signature"
+        h2.style.gridArea = 'ts'
+        measuresContainer().appendChild(h2)
+        
+    }
+
+    static renderMeasures(measures) {
+
         let x = 1
         for(let measure of measures) {
             const div = document.createElement("div")
@@ -70,25 +92,6 @@ class Song {
             measuresContainer().appendChild(div)
             x++
         }
-    }
-
-    static appendSongToNav(song) {
-        
-        const li = document.createElement('li')
-        li.innerHTML = `${song.title} - ${song.author}`
-        li.id = `song-${song.id}`
-        songListUl().appendChild(li)
-        li.addEventListener('click', (e) => Song.renderSong(e, song))
-    }
-
-    static renderTimeSignature() {
-        const newString = timeSignature.replace('/', "<br>")
-        const h2 = document.createElement("h2")
-        h2.innerHTML = newString
-        h2.className = "time-signature"
-        h2.style.gridArea = 'ts'
-        measuresContainer().appendChild(h2)
-        
     }
 
     

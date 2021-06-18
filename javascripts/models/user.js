@@ -41,24 +41,28 @@ class User {
         deleteBtn().classList.remove("hide")
         
         const user = User.findByUsername(username)
+        
         if (user) {
-
-            User.clearNav(user)
-            const songs = user.songs
-            const span = document.createElement('span')
-            currentUser = user
-            span.innerText = "Songs"
-            span.className = "song-list-header"
-            songListContainer().prepend(span)
-
-            for(const song of songs) {
-                Song.appendSongToNav(song)
-            }
+            User.renderUser(user)
 
         } else {
             UserApi.createUser(username)
         }
 
+    }
+
+    static renderUser(user) {
+        User.clearNav(user)
+        const songs = user.songs
+        const span = document.createElement('span')
+        currentUser = user
+        span.innerText = "Songs"
+        span.className = "song-list-header"
+        songListContainer().prepend(span)
+
+        for(const song of songs) {
+            Song.appendSongToNav(song)
+        }
     }
 
     static clearNav(user) {

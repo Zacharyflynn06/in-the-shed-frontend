@@ -41,9 +41,6 @@ const renderForm = () => {
     let n = measureField().value
     if(n > 32) {n = 32}
 
-    timeSignature = timeSig().value
-    
-
     for(let i=1; i <= n; i++) {
         const div = document.createElement("div")
         div.className = `empty`
@@ -62,7 +59,7 @@ const renderForm = () => {
         empty.addEventListener('drop', dragDrop)
     }
 
-    Song.renderTimeSignature()
+    Song.renderTimeSignature(timeSig().value)
 }
 
 // drag and drop
