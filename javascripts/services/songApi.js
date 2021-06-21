@@ -51,16 +51,27 @@ class SongApi {
         const attributes = {
             user_id: currentUser.id,
             title: title,
-            author: "Zac",
+            author: songAuthor().value,
             tempo:  bpm,
             time_signature: timeSig().value,
             measures: measures
         }
 
         let song = Song.findByTitle(title)
-
         if (song) {
             // handle update
+            fetch(SongApi.url + `/${song.id}`, {
+                method: 'PATCH',
+                headers: {
+                    "Content-Type": 'application/json'
+                },
+                body: JSON.stringify(attributes)
+            })
+            .then(resp => resp.json())
+            .then(json => {
+            })
+            .catch(err => alert(err))
+
         } else {
             // handle create
             fetch(SongApi.url, {
@@ -73,7 +84,15 @@ class SongApi {
             })
             .then(resp => resp.json())
             .then(json => {
-                song = new Song(attributes)
+                song = new Song({
+                    id: json.data.attributes.id,
+                    author: json.data.attributes.author,
+                    title: json.data.attributes.title,
+                    tempo: json.data.attributes.tempo,
+                    user: User.findById(json.data.attributes.user.id),
+                    time_signature: json.data.attributes.time_signature.name,
+                    measures: json.data.attributes.measures
+                })
                 Song.appendSongToNav(song)
                 currentSong = song
             })

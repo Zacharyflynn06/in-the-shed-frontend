@@ -44,7 +44,7 @@ class Song {
         const songObj = Song.findById(song.id)
 
         currentSong = songObj
-
+        
         songTitle().value = songObj.title
         songAuthor().value = songObj.author
 
