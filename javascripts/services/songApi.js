@@ -60,6 +60,7 @@ class SongApi {
         let song = Song.findByTitle(title)
         if (song) {
             // handle update
+
             fetch(SongApi.url + `/${song.id}`, {
                 method: 'PATCH',
                 headers: {
@@ -68,9 +69,15 @@ class SongApi {
                 body: JSON.stringify(attributes)
             })
             .then(resp => resp.json())
-            .then(json => {
+            .then(json => { 
+                
+                    song.id = json.data.attributes.id,
+                    song.author = json.data.attributes.author,
+                    song.title = json.data.attributes.title,
+                    song.tempo = json.data.attributes.tempo,
+                    song.time_signature = json.data.attributes.time_signature.name,
+                    song.measures = json.data.attributes.measures
             })
-            .catch(err => alert(err))
 
         } else {
             // handle create
@@ -101,7 +108,6 @@ class SongApi {
     }
 
     static handleDelete = () => {
-        debugger
         fetch(SongApi.url + `/${currentSong.id}`, {
             method: 'DELETE',
             headers: {
