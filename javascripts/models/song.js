@@ -41,7 +41,7 @@ class Song {
     }
 
     static renderSong(e, song) {
-        Song.clearSong()
+        this.clearSong()
         const songObj = Song.findById(song.id)
 
         currentSong = songObj
@@ -53,9 +53,9 @@ class Song {
         tempoRange().value = bpm
         updateTempo()
   
-        Song.renderTimeSignature(songObj.time_signature)
+        this.renderTimeSignature(songObj.time_signature)
 
-        Song.renderMeasures(songObj.measures)
+        this.renderMeasures(songObj.measures)
 
     }
 
@@ -65,7 +65,7 @@ class Song {
     }
 
     static appendSongsToNav() {
-        Song.removeSongsFromNav()
+        this.removeSongsFromNav()
 
         for(let song of currentUser.songs) {
             const li = document.createElement('li')
@@ -106,7 +106,7 @@ class Song {
 
 
     static removeSongFromPage() {
-        Song.clearSong()
+        this.clearSong()
 
         songTitle().value = "Song Title Here"
         songAuthor().value = "Author Here"

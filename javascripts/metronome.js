@@ -78,7 +78,8 @@ const createTempo = () => {
 
 const startTime = () => {
     if(measureCounter === measuresInForm){
-        measureCounter = 1
+        measureCounter = 0
+        // cl is chord locator
         cl = 0
     }
 
@@ -89,6 +90,8 @@ const startTime = () => {
 
     // sounds
     if (clickCount === 0) {
+        console.log(`chord locator is ${cl}`)
+        console.log(`measure number is ${measureCounter}`)
 
         if (chordStructure()[cl].dataset.life === "alive") {
 
