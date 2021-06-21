@@ -132,7 +132,6 @@ class SongApi {
         })
         // .then(resp => resp.json())
         .then(json => {
-            {debugger}
             Song.removeSongFromPage()
             let index = currentUser.songs.indexOf(currentSong)
             currentUser.songs.splice(index, 1)

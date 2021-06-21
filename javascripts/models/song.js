@@ -41,6 +41,7 @@ class Song {
     }
 
     static renderSong(e, song) {
+        Song.clearSong()
         const songObj = Song.findById(song.id)
 
         currentSong = songObj
@@ -64,7 +65,6 @@ class Song {
     }
 
     static appendSongsToNav() {
-        debugger
         Song.removeSongsFromNav()
 
         for(let song of currentUser.songs) {
@@ -106,9 +106,7 @@ class Song {
 
 
     static removeSongFromPage() {
-        while (measuresContainer().firstChild) 
-            measuresContainer().removeChild(measuresContainer().lastChild
-        )
+        Song.clearSong()
 
         songTitle().value = "Song Title Here"
         songAuthor().value = "Author Here"
@@ -116,7 +114,12 @@ class Song {
         const li = document.querySelector(`#song-${currentSong.id}`)
         songListUl().removeChild(li)
 
-        
+
+    }
+    static clearSong = () => {
+        while (measuresContainer().firstChild) 
+        measuresContainer().removeChild(measuresContainer().lastChild
+    )
     }
     
 }
