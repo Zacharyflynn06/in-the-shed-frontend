@@ -44,7 +44,7 @@ class Song {
         const songObj = Song.findById(song.id)
 
         currentSong = songObj
-        
+
         songTitle().value = songObj.title
         songAuthor().value = songObj.author
 
@@ -58,17 +58,23 @@ class Song {
 
     }
 
-    static removeSong(song) {
-
+    static removeSongsFromNav() {
+        while (songListUl().firstChild) 
+        songListUl().removeChild(songListUl().lastChild)
     }
 
-    static appendSongToNav(song) {
-        
-        const li = document.createElement('li')
-        li.innerHTML = `${song.title} - ${song.author}`
-        li.id = `song-${song.id}`
-        songListUl().appendChild(li)
-        li.addEventListener('click', (e) => Song.renderSong(e, song))
+    static appendSongsToNav() {
+        debugger
+        Song.removeSongsFromNav()
+
+        for(let song of currentUser.songs) {
+            const li = document.createElement('li')
+            li.innerHTML = `${song.title} - ${song.author}`
+            li.id = `song-${song.id}`
+            songListUl().appendChild(li)
+            li.addEventListener('click', (e) => Song.renderSong(e, song))
+        }
+
     }
 
     static renderTimeSignature(ts) {
@@ -109,6 +115,8 @@ class Song {
 
         const li = document.querySelector(`#song-${currentSong.id}`)
         songListUl().removeChild(li)
+
+        
     }
     
 }

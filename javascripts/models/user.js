@@ -57,16 +57,14 @@ class User {
 
     static renderUser(user) {
         User.clearNav(user)
-        const songs = user.songs
+        
         const span = document.createElement('span')
         currentUser = user
+        let songs = currentUser.songs
         span.innerText = "Songs"
         span.className = "song-list-header"
         songListContainer().prepend(span)
-
-        for(const song of songs) {
-            Song.appendSongToNav(song)
-        }
+        Song.appendSongsToNav(songs)
     }
 
     static clearNav(user) {

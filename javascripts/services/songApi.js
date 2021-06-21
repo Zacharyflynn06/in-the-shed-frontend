@@ -48,7 +48,7 @@ class SongApi {
             measures.push(chord)
         }
 
-        const attributes = {
+        const data = {
             user_id: currentUser.id,
             title: title,
             author: songAuthor().value,
@@ -57,54 +57,70 @@ class SongApi {
             measures: measures
         }
 
-        let song = Song.findByTitle(title)
+        let song = Song.findById(currentSong.id)
         if (song) {
-            // handle update
-
-            fetch(SongApi.url + `/${song.id}`, {
-                method: 'PATCH',
-                headers: {
-                    "Content-Type": 'application/json'
-                },
-                body: JSON.stringify(attributes)
-            })
-            .then(resp => resp.json())
-            .then(json => { 
-                
-                    song.id = json.data.attributes.id,
-                    song.author = json.data.attributes.author,
-                    song.title = json.data.attributes.title,
-                    song.tempo = json.data.attributes.tempo,
-                    song.time_signature = json.data.attributes.time_signature.name,
-                    song.measures = json.data.attributes.measures
-            })
-
+            SongApi.handleUpdate(song, data)
         } else {
-            // handle create
-            fetch(SongApi.url, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": 'application/json'
-                },
-                body: JSON.stringify(attributes),
-                
-            })
-            .then(resp => resp.json())
-            .then(json => {
-                song = new Song({
-                    id: json.data.attributes.id,
-                    author: json.data.attributes.author,
-                    title: json.data.attributes.title,
-                    tempo: json.data.attributes.tempo,
-                    user: User.findById(json.data.attributes.user.id),
-                    time_signature: json.data.attributes.time_signature.name,
-                    measures: json.data.attributes.measures
-                })
-                Song.appendSongToNav(song)
-                currentSong = song
-            })
-            .catch(this.handleError)
+            SongApi.handleCreate(song, data)
         }
+    }
+
+    static handleCreate = (song, data) => {
+
+        let user = User.findById(currentUser.id)
+
+
+        fetch(SongApi.url, {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify(data),
+            
+        })
+        .then(resp => resp.json())
+        .then(json => {
+            song = new Song({
+                id: json.data.attributes.id,
+                author: json.data.attributes.author,
+                title: json.data.attributes.title,
+                tempo: json.data.attributes.tempo,
+                user: User.findById(currentUser.id),
+                time_signature: json.data.attributes.time_signature.name,
+                measures: json.data.attributes.measures
+            })
+            user.songs.push(song)
+            Song.appendSongsToNav()
+            currentSong = song
+        })
+        .catch(this.handleError)
+    }
+
+    static handleUpdate = (song, data) => {
+        let index = currentUser.songs.indexOf(song)
+        currentUser.songs.splice(index, 1)
+        
+        fetch(SongApi.url + `/${song.id}`, {
+            method: 'PATCH',
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(resp => resp.json())
+        .then(json => {
+                
+                song.id = json.data.attributes.id,
+                song.author = json.data.attributes.author,
+                song.title = json.data.attributes.title,
+                song.tempo = json.data.attributes.tempo,
+                song.time_signature = json.data.attributes.time_signature.name,
+                song.measures = json.data.attributes.measures
+                currentUser.songs.push(song),
+                Song.appendSongsToNav(),
+                currentSong = song
+        })
+    
     }
 
     static handleDelete = () => {
@@ -116,8 +132,12 @@ class SongApi {
         })
         // .then(resp => resp.json())
         .then(json => {
+            {debugger}
             Song.removeSongFromPage()
-            delete Song.findById(currentSong.id)
+            let index = currentUser.songs.indexOf(currentSong)
+            currentUser.songs.splice(index, 1)
+            let allIndex = Song.all.indexOf(currentSong)
+            Song.all.splice(allIndex, 1)
             currentSong = ""
             alert(json.message)
         })
