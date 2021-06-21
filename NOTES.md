@@ -29,6 +29,8 @@ build side nav bar
 
 Emin chords not working [x]
 
+Gmin69 not working
+
 handle login
     render songs on login [x]
     add username to menu on login [x]
@@ -38,4 +40,6 @@ handle song load
 
 
 chord player drops a chord? []
-    
+
+
+save and delete issues still

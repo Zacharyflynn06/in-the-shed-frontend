@@ -72,15 +72,16 @@ class SongApi {
                 
             })
             .then(resp => resp.json())
-            .then(json => console.log(json))
+            .then(json => {
+                song = new Song(attributes)
+                Song.appendSongToNav(song)
+                currentSong = song
+            })
             .catch(this.handleError)
-
-            song = new Song(attributes)
-            Song.appendSongToNav(song)
         }
     }
 
-    static handleDelete = (e) => {
+    static handleDelete = () => {
         debugger
         fetch(SongApi.url + `/${currentSong.id}`, {
             method: 'DELETE',
@@ -88,9 +89,14 @@ class SongApi {
                 "Content-Type": 'application/json'
             }
         })
-        .then(resp => resp.json())
+        // .then(resp => resp.json())
         .then(json => {
-            {debugger}
+            Song.removeSongFromPage()
+            delete Song.findById(currentSong.id)
+            currentSong = ""
+            alert(json.message)
         })
     }
+
+
 }

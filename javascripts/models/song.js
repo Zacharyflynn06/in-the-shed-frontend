@@ -98,5 +98,17 @@ class Song {
         }
     }
 
+
+    static removeSongFromPage() {
+        while (measuresContainer().firstChild) 
+            measuresContainer().removeChild(measuresContainer().lastChild
+        )
+
+        songTitle().value = "Song Title Here"
+        songAuthor().value = "Author Here"
+
+        const li = document.querySelector(`#song-${currentSong.id}`)
+        songListUl().removeChild(li)
+    }
     
 }
