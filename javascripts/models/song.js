@@ -48,7 +48,6 @@ class Song {
 
         songTitle().value = songObj.title
         songAuthor().value = songObj.author
-
         bpm = songObj.tempo
         tempoRange().value = bpm
         updateTempo()
@@ -88,6 +87,27 @@ class Song {
     }
 
     static renderMeasures(measures) {
+        let n = measures.length
+        if(n > 32) {n = 32}
+    
+        for(let i=1; i <= n; i++) {
+            const div = document.createElement("div")
+            div.className = `empty`
+            div.style.gridArea = `m${i}`
+            div.innerHTML = `${i}`
+            div.id = `${i}`
+            div.dataset.life = "dead"
+            measuresContainer().appendChild(div) 
+        }
+    
+        const empties = document.querySelectorAll('.empty')
+        for(const empty of empties) {
+            empty.addEventListener('dragover', dragOver)
+            empty.addEventListener('dragenter', dragEnter)
+            empty.addEventListener('dragleave', dragLeave)
+            empty.addEventListener('drop', dragDrop)
+        }
+
 
         let x = 1
         for(let measure of measures) {
@@ -99,27 +119,32 @@ class Song {
             div.dataset.root = measure.chords[0].root
             div.dataset.quality = measure.chords[0].quality
             div.dataset.life = "alive"
+            div.setAttribute("draggable", "true")
             measuresContainer().appendChild(div)
             x++
+            const fullChord = () => document.querySelector('.full-chord')
+            fullChord().addEventListener('dragstart', dragStart)
+            fullChord().addEventListener('dragend', dragEnd)
+
         }
     }
 
 
     static removeSongFromPage() {
-        this.clearSong()
-
-        songTitle().value = "Song Title Here"
-        songAuthor().value = "Author Here"
-
+        
         const li = document.querySelector(`#song-${currentSong.id}`)
         songListUl().removeChild(li)
-
+        
+        this.clearSong()
 
     }
     static clearSong = () => {
         while (measuresContainer().firstChild) 
         measuresContainer().removeChild(measuresContainer().lastChild
     )
+    songTitle().value = "Song Title"
+    songAuthor().value = "Author"
+    currentSong = ""
     }
     
 }

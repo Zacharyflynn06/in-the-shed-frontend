@@ -43,6 +43,7 @@ class User {
 
         saveBtn().classList.remove("hide")
         deleteBtn().classList.remove("hide")
+        newSongBtn().classList.remove("hide")
         
         const user = User.findByUsername(username)
         

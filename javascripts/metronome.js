@@ -104,6 +104,7 @@ const startTime = () => {
     
             setTimeout(() => {
                 playChord.pause()
+                playChord.currentTime = 0
             }, (60000/bpm) * beatsPerBar.length);
         }
 
