@@ -67,8 +67,8 @@ class SongApi {
 
     static handleCreate = (song, data) => {
 
-        let user = User.findById(currentUser.id)
-
+        // let user = User.findById(currentUser.id)
+        let status
 
         fetch(SongApi.url, {
             method: 'POST',
@@ -78,8 +78,11 @@ class SongApi {
             body: JSON.stringify(data),
             
         })
-        .then(resp => resp.json())
-        .then(json => {
+        .then(resp => {
+            status = resp.status
+            return resp.json()
+        })
+        .then(json => { 
             song = new Song({
                 id: json.data.attributes.id,
                 author: json.data.attributes.author,
@@ -89,17 +92,17 @@ class SongApi {
                 time_signature: json.data.attributes.time_signature.name,
                 measures: json.data.attributes.measures
             })
-            user.songs.push(song)
             Song.appendSongsToNav()
             currentSong = song
+            
+            if(status === 201) {
+                alert("Song was Saved!")
+            }
         })
         .catch(this.handleError)
     }
 
-    static handleUpdate = (song, data) => {
-        let index = currentUser.songs.indexOf(song)
-        currentUser.songs.splice(index, 1)
-        
+    static handleUpdate = (song, data) => {        
         fetch(SongApi.url + `/${song.id}`, {
             method: 'PATCH',
             headers: {
@@ -107,7 +110,11 @@ class SongApi {
             },
             body: JSON.stringify(data)
         })
-        .then(resp => resp.json())
+        .then(resp =>  {
+            status = resp.status
+            return resp.json()
+        })
+
         .then(json => {
                 
                 song.id = json.data.attributes.id,
@@ -116,9 +123,12 @@ class SongApi {
                 song.tempo = json.data.attributes.tempo,
                 song.time_signature = json.data.attributes.time_signature.name,
                 song.measures = json.data.attributes.measures
-                currentUser.songs.push(song),
                 Song.appendSongsToNav(),
                 currentSong = song
+
+                if(status === "200") {
+                    alert("Song was Updated!")
+                }
         })
     
     }
@@ -130,11 +140,10 @@ class SongApi {
                 "Content-Type": 'application/json'
             }
         })
-        // .then(resp => resp.json())
-        .then(json => {
+        .then(resp => resp.json())
+        .then(json => { 
             Song.removeSongFromPage()
-            let index = currentUser.songs.indexOf(currentSong)
-            currentUser.songs.splice(index, 1)
+ 
             let allIndex = Song.all.indexOf(currentSong)
             Song.all.splice(allIndex, 1)
             currentSong = ""

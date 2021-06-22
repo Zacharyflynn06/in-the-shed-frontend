@@ -66,7 +66,7 @@ class Song {
     static appendSongsToNav() {
         this.removeSongsFromNav()
 
-        for(let song of currentUser.songs) {
+        for(let song of currentUser.songs()) {
             const li = document.createElement('li')
             li.innerHTML = `${song.title} - ${song.author}`
             li.id = `song-${song.id}`

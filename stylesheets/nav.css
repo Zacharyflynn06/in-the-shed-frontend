@@ -83,6 +83,7 @@ height: 20%;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    height: 20%;
 }
 
 .user-login-field {
