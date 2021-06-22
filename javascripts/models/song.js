@@ -101,31 +101,27 @@ class Song {
         }
     
         const empties = document.querySelectorAll('.empty')
-        for(const empty of empties) {
+
+        let x = 0
+        for(let empty of empties) {
+
             empty.addEventListener('dragover', dragOver)
             empty.addEventListener('dragenter', dragEnter)
             empty.addEventListener('dragleave', dragLeave)
             empty.addEventListener('drop', dragDrop)
-        }
 
-
-        let x = 1
-        for(let measure of measures) {
-            const div = document.createElement("div")
-            div.className = `full-chord`
-            div.style.gridArea = `m${x}`
-            div.innerHTML = measure.chords[0].name
-            div.id = `${x}`
-            div.dataset.root = measure.chords[0].root
-            div.dataset.quality = measure.chords[0].quality
-            div.dataset.life = "alive"
-            div.setAttribute("draggable", "true")
-            measuresContainer().appendChild(div)
+            empty.className = `full-chord`
+            empty.innerHTML = measures[x].chords[0].name
+            empty.dataset.root = measures[x].chords[0].root
+            empty.dataset.quality = measures[x].chords[0].quality
+            empty.dataset.life = "alive"
+            empty.setAttribute("draggable", "true")
+            // measuresContainer().appendChild(empty)
+            
+            empty.addEventListener('dragstart', dragStart)
+            empty.addEventListener('dragend', dragEnd)
+            
             x++
-            const fullChord = () => document.querySelector('.full-chord')
-            fullChord().addEventListener('dragstart', dragStart)
-            fullChord().addEventListener('dragend', dragEnd)
-
         }
     }
 
@@ -141,10 +137,10 @@ class Song {
     static clearSong = () => {
         while (measuresContainer().firstChild) 
         measuresContainer().removeChild(measuresContainer().lastChild
-    )
-    songTitle().value = "Song Title"
-    songAuthor().value = "Author"
-    currentSong = ""
+        )
+        songTitle().value = "Song Title"
+        songAuthor().value = "Author"
+        currentSong = ""
     }
     
 }
