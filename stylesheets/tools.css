@@ -70,8 +70,6 @@
     text-align: center;
     align-items: center;
     border: 1px solid black;
-    /* height: 3em;
-    width: 7em; */
     cursor: pointer;
     background-color: var(--three);
     color: white;

@@ -1,4 +1,4 @@
-let newVar = null
+
 const renderChord = () => {
     chordContainer().innerHTML = ""
 
@@ -12,6 +12,7 @@ const renderChord = () => {
     const div = document.createElement("div")
     div.innerHTML = `${root}${quality}`
     div.className = "new-chord"
+    div.dataset.name = `${root}${quality}`
     div.dataset.root = root
     div.dataset.quality = quality
     div.dataset.life = "alive"
@@ -28,19 +29,16 @@ const renderChord = () => {
 }
 
 
-const cardFlip = () => {
-    card().classList.toggle('is-flipped')
-}
 
 const renderForm = () => {
     
     createTempo()
     clickCount = 0
     measuresContainer().innerHTML = ""
-
+    
     let n = measureField().value
     if(n > 32) {n = 32}
-
+    
     for(let i=1; i <= n; i++) {
         const div = document.createElement("div")
         div.className = `empty`
@@ -50,7 +48,7 @@ const renderForm = () => {
         div.dataset.life = "dead"
         measuresContainer().appendChild(div) 
     }
-
+    
     const empties = document.querySelectorAll('.empty')
     for(const empty of empties) {
         empty.addEventListener('dragover', dragOver)
@@ -58,22 +56,27 @@ const renderForm = () => {
         empty.addEventListener('dragleave', dragLeave)
         empty.addEventListener('drop', dragDrop)
     }
-
+    
     Song.renderTimeSignature(timeSig().value)
 }
 
 // drag and drop
 // new one
+let moveVar = {name: "", quality: "", root: ""}
 function dragStart(e) {
     e.preventDefault
     
+    console.log("start",this)
     if(this.className === "new-chord"){
         this.className += " hold"
         setTimeout(() => this.className = "invisible", 0)
     } else if (this.className === "full-chord") {
+        moveVar.name = this.dataset.name
+        moveVar.quality = this.dataset.quality
+        moveVar.root = this.dataset.quality
         this.className = "move-chord"
-        // const moveChord = document.querySelector('.move-chord')
-        // newVar = moveChord
+        this.className += " hold"
+        
     }
 }
 
@@ -86,7 +89,6 @@ function dragEnd() {
 
 function dragEnter(e) {
     e.preventDefault()
-    // console.log("enter")
     this.className += " hovered"
 }
 
@@ -97,31 +99,53 @@ function dragOver(e) {
 
 
 function dragLeave() {
-    // console.log("leave")
-
+    console.log("leave", this)
     if(this.className === "full-chord hovered"){
         this.className = "full-chord"
-    }else{
+    } else if(this.className === "move-chord hovered"){
+        this.className = "move-chord"
+    } else{
         this.className = "empty"
         this.innerHTML = this.id
     }
 }
 
 function dragDrop() {
-    
-    // console.log("drop")
-    this.innerHTML = ""
-    this.append(newVar)
-    this.setAttribute("draggable", "true")
-    this.className = "full-chord"
-    this.innerHTML = newVar.innerHTML
-    this.dataset.root = newVar.dataset.root
-    this.dataset.quality = newVar.dataset.quality
-    this.dataset.life = "alive"
+
+    if(newVar){
+        console.log("drop", this)
+        this.innerHTML = ""
+        this.append(newVar)
+        this.setAttribute("draggable", "true")
+        this.className = "full-chord"
+        this.innerHTML = newVar.innerHTML
+        this.dataset.root = newVar.dataset.root
+        this.dataset.quality = newVar.dataset.quality
+        this.dataset.name = newVar.dataset.name
+        this.dataset.life = "alive"
+        
+        newVar = ""
+    } else {
+        console.log("move", moveVar)
+        this.innerHTML = ""
+        this.append(moveVar)
+        this.setAttribute("draggable", "true")
+        this.className = "full-chord"
+        this.dataset.root = moveVar.root
+        this.dataset.quality = moveVar.quality
+        this.dataset.name = moveVar.name
+        this.innerHTML = moveVar.name
+        this.dataset.life = "alive"
+        // moveVar = ""
+    }
 
     const fullChord = () => document.querySelector('.full-chord')
     fullChord().addEventListener('dragstart', dragStart)
     fullChord().addEventListener('dragend', dragEnd)
+    
 }
 
+const cardFlip = () => {
+    card().classList.toggle('is-flipped')
+}
 

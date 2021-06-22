@@ -6,14 +6,14 @@ const toggleNavBar = () => {
     }
 }
 
-const sumMeasures = () => {
-    let measures = []
-    let chord = {}
+// const sumMeasures = () => {
+//     let measures = []
+//     let chord = {}
 
-    chordStructure().forEach(div => {
+//     chordStructure().forEach(div => {
         
-    }
-        )
+//     }
+//         )
 
 
-}
+// }

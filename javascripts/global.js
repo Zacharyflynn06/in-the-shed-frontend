@@ -84,3 +84,4 @@ let beatsPerBar = []
 let measureCounter = 1
 let cl =0
 let measuresInForm = 0
+let newVar = null

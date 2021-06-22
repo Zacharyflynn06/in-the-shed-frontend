@@ -114,9 +114,11 @@ class Song {
             empty.innerHTML = measures[x].chords[0].name
             empty.dataset.root = measures[x].chords[0].root
             empty.dataset.quality = measures[x].chords[0].quality
+            empty.dataset.name = measures[x].chords[0].name
             empty.dataset.life = "alive"
             empty.setAttribute("draggable", "true")
-            // measuresContainer().appendChild(empty)
+            
+
             
             empty.addEventListener('dragstart', dragStart)
             empty.addEventListener('dragend', dragEnd)
@@ -135,9 +137,9 @@ class Song {
 
     }
     static clearSong = () => {
-        while (measuresContainer().firstChild) 
-        measuresContainer().removeChild(measuresContainer().lastChild
-        )
+        while (measuresContainer().firstChild) {
+            measuresContainer().removeChild(measuresContainer().lastChild)
+        }
         songTitle().value = "Song Title"
         songAuthor().value = "Author"
         currentSong = ""
