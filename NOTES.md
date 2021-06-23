@@ -29,7 +29,7 @@ build side nav bar
 
 Emin chords not working [x]
 
-Gmin69 not working
+Gmin69 not working[x]
 
 handle login
     render songs on login [x]
@@ -39,7 +39,4 @@ handle song load
     on click, fetch song objects [x]
 
 
-chord player drops a chord? []
-
-
-save and delete issues still
+chord player drops a chord? [x]
