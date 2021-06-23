@@ -46,7 +46,7 @@ class User {
         const user = User.findByUsername(username)
         
         if (user) {
-            User.renderUser(user)
+            user.renderUser()
             
         } else {
             UserApi.createUser(username)
@@ -54,20 +54,19 @@ class User {
         
     }
     
-    static renderUser(user) {
-        User.clearNav(user)
-        
+    renderUser() {
+        debugger
+        this.updateNav()
         const span = document.createElement('span')
-        currentUser = user
-        let songs = currentUser.songs()
         span.innerText = "Songs"
         span.className = "song-list-header"
         songListContainer().prepend(span)
-        Song.appendSongsToNav(songs)
+        Song.appendSongsToNav(this.songs())
+        currentUser = this
     }
     
-    static clearNav(user) {
-        usernameDisplay().innerHTML = `Welcome ${user.username}`
+    updateNav() {
+        usernameDisplay().innerHTML = `Welcome ${this.username}`
         loginContainer().style.display = "none" 
     }
     

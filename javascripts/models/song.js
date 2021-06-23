@@ -17,11 +17,11 @@ class Song {
     static findById(id) {
         return this.all.find(song => song.id === id)
     }
-
+    
     static findByTitle(title) {
         return this.all.find(song => song.title === title)
     }
-
+    
     static findOrCreateByTitle(songObj) {
         return this.findByTitle(songObj.title) || new Song({
             user: User.findByUsername(songObj.attributes.user.username),
@@ -32,44 +32,53 @@ class Song {
             measures: songObj.attributes.measures,
             time_signature: songObj.attributes.time_signature.name
         })
-
+        
     }
 
-    renderSong() {
-
-        Song.clearSongContainer()
-        const id = parseInt(this.id.split("-")[1])
-        const songObj = Song.findById(id)
-
-        currentSong = songObj
-
-        songTitle().value = songObj.title
-        songAuthor().value = songObj.author
-        bpm = songObj.tempo
-        tempoRange().value = bpm
-        updateTempo()
-  
-        renderTimeSignature(songObj.time_signature)
-
-        songObj.renderMeasures()
-
+    static clearSongContainer = () => {
+        while (measuresContainer().firstChild) {
+            measuresContainer().removeChild(measuresContainer().lastChild)
+        }
+        songTitle().value = "Song Title"
+        songAuthor().value = "Author"
+        currentSong = ""
     }
-
+    
     static removeSongsFromNav() {
         while (songListUl().firstChild) 
         songListUl().removeChild(songListUl().lastChild)
     }
-
-    static appendSongsToNav() {
+    
+    static appendSongsToNav(songs) {
         this.removeSongsFromNav()
 
-        for(let song of currentUser.songs()) {
+        for(let song of songs) {
             const li = document.createElement('li')
             li.innerHTML = `${song.title} - ${song.author}`
             li.id = `song-${song.id}`
             songListUl().appendChild(li)
             li.addEventListener('click', song.renderSong)
         }
+    }
+
+
+    renderSong() {
+        
+        Song.clearSongContainer()
+        const id = parseInt(this.id.split("-")[1])
+        const songObj = Song.findById(id)
+        
+        currentSong = songObj
+        
+        songTitle().value = songObj.title
+        songAuthor().value = songObj.author
+        bpm = songObj.tempo
+        tempoRange().value = bpm
+        updateTempo()
+        
+        renderTimeSignature(songObj.time_signature)
+        
+        songObj.renderMeasures()
 
     }
 
@@ -112,20 +121,10 @@ class Song {
 
 
     removeSongFromPage() {
-        debugger
         const li = document.querySelector(`#song-${this.id}`)
         songListUl().removeChild(li)
-        
         Song.clearSongContainer()
     }
 
-    static clearSongContainer = () => {
-        while (measuresContainer().firstChild) {
-            measuresContainer().removeChild(measuresContainer().lastChild)
-        }
-        songTitle().value = "Song Title"
-        songAuthor().value = "Author"
-        currentSong = ""
-    }
     
 }
