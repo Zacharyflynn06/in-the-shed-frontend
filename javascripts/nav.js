@@ -18,5 +18,22 @@ class Nav {
         currentUser = ""
     }
 
+    static appendSongsToNav(songs) {
+        this.removeSongsFromNav()
+
+        for(let song of songs) {
+            const li = document.createElement('li')
+            li.innerHTML = `${song.title} - ${song.author}`
+            li.id = `song-${song.id}`
+            songListUl().appendChild(li)
+            li.addEventListener('click', song.renderSong)
+        }
+    }
+
+    static removeSongsFromNav() {
+        while (songListUl().firstChild) 
+        songListUl().removeChild(songListUl().lastChild)
+    }
+
 
 }

@@ -92,7 +92,7 @@ class SongApi {
                 time_signature: json.data.attributes.time_signature.name,
                 measures: json.data.attributes.measures
             })
-            Song.appendSongsToNav()
+            Nav.appendSongsToNav()
             currentSong = song
             
             if(status === 201) {
@@ -123,7 +123,7 @@ class SongApi {
                 song.tempo = json.data.attributes.tempo,
                 song.time_signature = json.data.attributes.time_signature.name,
                 song.measures = json.data.attributes.measures
-                Song.appendSongsToNav(),
+                Nav.appendSongsToNav(),
                 currentSong = song
 
                 if(status === "200") {

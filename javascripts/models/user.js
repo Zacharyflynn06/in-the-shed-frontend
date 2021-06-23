@@ -25,13 +25,12 @@ class User {
         })}
 
     renderUser() {
-        debugger
         Nav.updateNav(this.username)
         const span = document.createElement('span')
         span.innerText = "Songs"
         span.className = "song-list-header"
         songListContainer().prepend(span)
-        Song.appendSongsToNav(this.songs())
+        Nav.appendSongsToNav(this.songs())
         currentUser = this
     }
     
