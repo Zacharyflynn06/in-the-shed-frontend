@@ -13,6 +13,29 @@ class UserApi {
         .catch(this.handleError)
     }
 
+    static handleSubmit(e) {
+        e.preventDefault()
+        
+        const username = userLoginField().value
+        
+        if(!username) return
+        
+        saveBtn().classList.remove("hide")
+        deleteBtn().classList.remove("hide")
+        newSongBtn().classList.remove("hide")
+        
+        const user = User.findByUsername(username)
+        
+        if (user) {
+            user.renderUser()
+            
+        } else {
+            
+            UserApi.createUser(username)
+        }
+        
+    }
+
     static createUser(username) {
         fetch(User.userURL, {
             method: 'POST',
@@ -24,7 +47,7 @@ class UserApi {
         .then(resp => resp.json())
         .then(json => {
             let newUser = new User(json)
-            User.clearNav(newUser)
+            newUser.updateNav()
             currentUser = newUser
         })
     }

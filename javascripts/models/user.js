@@ -27,33 +27,7 @@ class User {
             username: userObj.attributes.username,
             id: userObj.id,
         })}
-        
-    static handleSubmit(e) {
-        e.preventDefault()
-        
-        const username = userLoginField().value
-        
-        if(!username) return
-        
-        const data = {
-            username: username
-        }
-        
-        saveBtn().classList.remove("hide")
-        deleteBtn().classList.remove("hide")
-        newSongBtn().classList.remove("hide")
-        
-        const user = User.findByUsername(username)
-        
-        if (user) {
-            user.renderUser()
-            
-        } else {
-            UserApi.createUser(username)
-        }
-        
-    }
-    
+         
     renderUser() {
         debugger
         this.updateNav()

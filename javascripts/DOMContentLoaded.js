@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     
     // buttons
-    createUserBtn().addEventListener('click', User.handleSubmit)
+    createUserBtn().addEventListener('click', UserApi.handleSubmit)
     decreaseMetBtn().addEventListener('click', decreaseMetronome)
     createMeasureBtn().addEventListener('click', renderForm)
     hamburgerBtn().addEventListener('click', toggleNavBar)
