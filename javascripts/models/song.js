@@ -108,6 +108,4 @@ class Song {
         songListUl().removeChild(li)
         Song.clearSongContainer()
     }
-
-    
 }
