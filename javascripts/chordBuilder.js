@@ -57,7 +57,17 @@ const renderForm = () => {
         empty.addEventListener('drop', dragDrop)
     }
     
-    Song.renderTimeSignature(timeSig().value)
+    renderTimeSignature(timeSig().value)
+}
+
+
+const renderTimeSignature = (ts) => {
+    const newString = ts.replace('/', "<br>")
+    const h2 = document.createElement("h2")
+    h2.innerHTML = newString
+    h2.className = "time-signature"
+    h2.style.gridArea = 'ts'
+    measuresContainer().appendChild(h2)
 }
 
 // drag and drop

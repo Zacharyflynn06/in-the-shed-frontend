@@ -142,7 +142,7 @@ class SongApi {
         })
         .then(resp => resp.json())
         .then(json => { 
-            Song.removeSongFromPage()
+            currentSong.removeSongFromPage()
  
             let allIndex = Song.all.indexOf(currentSong)
             Song.all.splice(allIndex, 1)

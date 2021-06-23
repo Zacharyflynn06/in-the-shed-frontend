@@ -37,7 +37,7 @@ class Song {
 
     renderSong() {
 
-        Song.clearSong()
+        Song.clearSongContainer()
         const id = parseInt(this.id.split("-")[1])
         const songObj = Song.findById(id)
 
@@ -49,7 +49,7 @@ class Song {
         tempoRange().value = bpm
         updateTempo()
   
-        songObj.renderTimeSignature()
+        renderTimeSignature(songObj.time_signature)
 
         songObj.renderMeasures()
 
@@ -73,19 +73,7 @@ class Song {
 
     }
 
-    renderTimeSignature() {
-        debugger
-        const newString = this.time_signature.replace('/', "<br>")
-        const h2 = document.createElement("h2")
-        h2.innerHTML = newString
-        h2.className = "time-signature"
-        h2.style.gridArea = 'ts'
-        measuresContainer().appendChild(h2)
-        
-    }
-
     renderMeasures() {
-        debugger
         let n = this.measures.length
         if(n > 32) {n = 32}
     
@@ -123,15 +111,15 @@ class Song {
     }
 
 
-    static removeSongFromPage() {
-        
-        const li = document.querySelector(`#song-${currentSong.id}`)
+    removeSongFromPage() {
+        debugger
+        const li = document.querySelector(`#song-${this.id}`)
         songListUl().removeChild(li)
         
-        this.clearSong()
-
+        Song.clearSongContainer()
     }
-    static clearSong = () => {
+
+    static clearSongContainer = () => {
         while (measuresContainer().firstChild) {
             measuresContainer().removeChild(measuresContainer().lastChild)
         }
