@@ -78,12 +78,16 @@ height: 20%;
     transform: scale(1.2);
 }
 
-.login-container{
+.show-login{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     height: 20%;
+}
+
+.hide-login{
+    display: none;
 }
 
 .user-login-field {

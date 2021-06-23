@@ -10,10 +10,6 @@ class User {
         User.all.push(this)
     }
 
-    static getAll() {
-        return this.all
-    }
-
     static findById(id) {
         return this.all.find(user => user.id === id)
     }
@@ -27,10 +23,10 @@ class User {
             username: userObj.attributes.username,
             id: userObj.id,
         })}
-         
+
     renderUser() {
         debugger
-        this.updateNav()
+        Nav.updateNav(this.username)
         const span = document.createElement('span')
         span.innerText = "Songs"
         span.className = "song-list-header"
@@ -39,15 +35,8 @@ class User {
         currentUser = this
     }
     
-    updateNav() {
-        usernameDisplay().innerHTML = `Welcome ${this.username}`
-        loginContainer().style.display = "none" 
-    }
-    
     songs() {
        return Song.all.filter(song => song.user === this)
     }
 
-    
-    
 }

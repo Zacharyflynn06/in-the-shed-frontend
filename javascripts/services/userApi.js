@@ -47,7 +47,7 @@ class UserApi {
         .then(resp => resp.json())
         .then(json => {
             let newUser = new User(json)
-            newUser.updateNav()
+            Nav.updateNav(newUser.username)
             currentUser = newUser
         })
     }
