@@ -1,3 +1,10 @@
+class Metronome {
+
+    
+}
+
+
+
 const setMetMarking = () => {
 
     if (bpm <= 40 ) {metMarking = "Grave"}

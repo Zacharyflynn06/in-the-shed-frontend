@@ -13,11 +13,6 @@ class Song {
 
         Song.all.push(this)
     }
-
-    static getAll() {
-        return this.all
-    }
-
     
     static findById(id) {
         return this.all.find(song => song.id === id)
@@ -40,9 +35,11 @@ class Song {
 
     }
 
-    static renderSong(e, song) {
-        this.clearSong()
-        const songObj = Song.findById(song.id)
+    renderSong() {
+
+        Song.clearSong()
+        const id = parseInt(this.id.split("-")[1])
+        const songObj = Song.findById(id)
 
         currentSong = songObj
 
@@ -52,9 +49,9 @@ class Song {
         tempoRange().value = bpm
         updateTempo()
   
-        this.renderTimeSignature(songObj.time_signature)
+        songObj.renderTimeSignature()
 
-        this.renderMeasures(songObj.measures)
+        songObj.renderMeasures()
 
     }
 
@@ -71,13 +68,14 @@ class Song {
             li.innerHTML = `${song.title} - ${song.author}`
             li.id = `song-${song.id}`
             songListUl().appendChild(li)
-            li.addEventListener('click', (e) => Song.renderSong(e, song))
+            li.addEventListener('click', song.renderSong)
         }
 
     }
 
-    static renderTimeSignature(ts) {
-        const newString = ts.replace('/', "<br>")
+    renderTimeSignature() {
+        debugger
+        const newString = this.time_signature.replace('/', "<br>")
         const h2 = document.createElement("h2")
         h2.innerHTML = newString
         h2.className = "time-signature"
@@ -86,8 +84,9 @@ class Song {
         
     }
 
-    static renderMeasures(measures) {
-        let n = measures.length
+    renderMeasures() {
+        debugger
+        let n = this.measures.length
         if(n > 32) {n = 32}
     
         for(let i=1; i <= n; i++) {
@@ -98,6 +97,10 @@ class Song {
             div.id = `${i}`
             div.dataset.life = "dead"
             measuresContainer().appendChild(div) 
+            div.addEventListener('dragover', dragOver)
+            div.addEventListener('dragenter', dragEnter)
+            div.addEventListener('dragleave', dragLeave)
+            div.addEventListener('drop', dragDrop)
         }
     
         const empties = document.querySelectorAll('.empty')
@@ -105,24 +108,16 @@ class Song {
         let x = 0
         for(let empty of empties) {
 
-            empty.addEventListener('dragover', dragOver)
-            empty.addEventListener('dragenter', dragEnter)
-            empty.addEventListener('dragleave', dragLeave)
-            empty.addEventListener('drop', dragDrop)
-
             empty.className = `full-chord`
-            empty.innerHTML = measures[x].chords[0].name
-            empty.dataset.root = measures[x].chords[0].root
-            empty.dataset.quality = measures[x].chords[0].quality
-            empty.dataset.name = measures[x].chords[0].name
+            empty.innerHTML = this.measures[x].chords[0].name
+            empty.dataset.root = this.measures[x].chords[0].root
+            empty.dataset.quality = this.measures[x].chords[0].quality
+            empty.dataset.name = this.measures[x].chords[0].name
             empty.dataset.life = "alive"
-            empty.setAttribute("draggable", "true")
-            
 
-            
+            empty.setAttribute("draggable", "true")
             empty.addEventListener('dragstart', dragStart)
             empty.addEventListener('dragend', dragEnd)
-            
             x++
         }
     }

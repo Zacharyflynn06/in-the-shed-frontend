@@ -62,11 +62,11 @@ const renderForm = () => {
 
 // drag and drop
 // new one
-let moveVar = {name: "", quality: "", root: ""}
+
 function dragStart(e) {
+
     e.preventDefault
-    
-    console.log("start",this)
+
     if(this.className === "new-chord"){
         this.className += " hold"
         setTimeout(() => this.className = "invisible", 0)
@@ -76,12 +76,10 @@ function dragStart(e) {
         moveVar.root = this.dataset.quality
         this.className = "move-chord"
         this.className += " hold"
-        
     }
 }
 
 function dragEnd() {
-    // console.log("end")
 }
 
 
@@ -94,7 +92,6 @@ function dragEnter(e) {
 
 function dragOver(e) {
     e.preventDefault()
-    // console.log("over")
 }
 
 
