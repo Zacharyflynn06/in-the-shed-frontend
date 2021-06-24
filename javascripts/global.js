@@ -1,5 +1,4 @@
 // click samples
-
 const hi = new Audio('sounds/metronome_samples/hi.wav')
 const low = new Audio("sounds/metronome_samples/low.wav")
 

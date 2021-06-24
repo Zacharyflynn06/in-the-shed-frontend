@@ -25,4 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
     startButton().addEventListener('click', Metronome.startMetronome)
     Metronome.createTempo()
     
+
 })
+const clickTrack = new Timer(SoundEngine.playSong, 60000/bpm, true)
