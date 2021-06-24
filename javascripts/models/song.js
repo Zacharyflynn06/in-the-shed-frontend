@@ -57,7 +57,7 @@ class Song {
         songAuthor().value = songObj.author
         bpm = songObj.tempo
         tempoRange().value = bpm
-        updateTempo()
+        Metronome.updateTempo()
         
         renderTimeSignature(songObj.time_signature)
         

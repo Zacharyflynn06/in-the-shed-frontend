@@ -3,7 +3,6 @@
 const hi = new Audio('sounds/metronome_samples/hi.wav')
 const low = new Audio("sounds/metronome_samples/low.wav")
 
-        // const test = new Audio(`sounds/chords/${chordMatrix[i].replace(/['"]+/g, '')}/${chordMatrix[i].replace(/['"]+/g, '')}.wav`)  
 
 // user
 let currentUser = ""
@@ -82,7 +81,7 @@ let bottomNum = timeSig().value.split("/")[1]
 // let chordMatrix = []
 let beatsPerBar = []
 let measureCounter = 1
-let cl =0
+let cl = 0
 let measuresInForm = 0
 let newVar = null
 let moveVar = {name: "", quality: "", root: ""}

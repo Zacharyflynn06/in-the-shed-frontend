@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
     UserApi.fetchUsers()
     SongApi.fetchSongs()
     
-  
+    
+
     
     
     // buttons
     createUserBtn().addEventListener('click', UserApi.handleSubmit)
-    decreaseMetBtn().addEventListener('click', decreaseMetronome)
     createMeasureBtn().addEventListener('click', renderForm)
     hamburgerBtn().addEventListener('click', Nav.toggleNavBar)
     nextBtn().addEventListener('click', cardFlip)
@@ -17,11 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
     saveBtn().addEventListener('click', SongApi.handleSubmit)
     deleteBtn().addEventListener('click', SongApi.handleDelete)
     newSongBtn().addEventListener('click', Song.clearSongContainer)
-
+    
     // metronome
-    tempoRange().addEventListener('input', changeMetByRange)
-    decreaseMetBtn().addEventListener('click', decreaseMetronome)
-    increaseMetBtn().addEventListener('click', increaseMetronome)
-    startButton().addEventListener('click', startMetronome)
-    createTempo()
+    decreaseMetBtn().addEventListener('click', Metronome.decreaseMetronome)
+    tempoRange().addEventListener('input', Metronome.changeMetByRange)
+    increaseMetBtn().addEventListener('click', Metronome.increaseMetronome)
+    startButton().addEventListener('click', Metronome.startMetronome)
+    Metronome.createTempo()
+    
 })

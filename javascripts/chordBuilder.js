@@ -32,7 +32,7 @@ const renderChord = () => {
 
 const renderForm = () => {
     
-    createTempo()
+    Metronome.createTempo()
     clickCount = 0
     measuresContainer().innerHTML = ""
     
