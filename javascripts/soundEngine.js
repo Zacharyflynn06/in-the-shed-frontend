@@ -9,6 +9,7 @@ class SoundEngine {
         if( clickCount === beatsPerBar.length) {
             clickCount = 0
             measureCounter ++
+
         }
     
         // sounds
@@ -20,6 +21,7 @@ class SoundEngine {
                 const currentChord = chordStructure()[cl]
                 const root = currentChord.dataset.root
                 const quality = currentChord.dataset.quality
+                currentChord.style.backgroundColor = "#0f3057"
                 const soundFile = buildChordUrl(root, quality)
                 const playChord = new Audio(soundFile)
                 
@@ -30,6 +32,7 @@ class SoundEngine {
                         setTimeout(() => {
                             playChord.pause()
                             playChord.currentTime = 0
+                            currentChord.style.backgroundColor = "#008891"
                         }, (60000/bpm) * beatsPerBar.length);
                     })
                 }
