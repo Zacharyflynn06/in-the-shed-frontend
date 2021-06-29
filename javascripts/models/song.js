@@ -59,7 +59,7 @@ class Song {
         tempoRange().value = bpm
         Metronome.updateTempo()
         
-        renderTimeSignature(songObj.time_signature)
+        Tool.renderTimeSignature(songObj.time_signature)
         
         songObj.renderMeasures()
 
@@ -101,6 +101,8 @@ class Song {
             x++
         }
     }
+
+    
 
 
     removeSongFromPage() {

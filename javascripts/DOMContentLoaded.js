@@ -4,16 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
     SongApi.fetchSongs()
     
     
-
-    
-    
     // buttons
     createUserBtn().addEventListener('click', UserApi.handleSubmit)
-    createMeasureBtn().addEventListener('click', renderForm)
+    createMeasureBtn().addEventListener('click', Tool.renderForm)
     hamburgerBtn().addEventListener('click', Nav.toggleNavBar)
-    nextBtn().addEventListener('click', cardFlip)
-    backBtn().addEventListener('click', cardFlip)
-    createChordBtn().addEventListener('click', renderChord)
+    nextBtn().addEventListener('click', Tool.cardFlip)
+    backBtn().addEventListener('click', Tool.cardFlip)
+    createChordBtn().addEventListener('click', Tool.renderChord)
     saveBtn().addEventListener('click', SongApi.handleSubmit)
     deleteBtn().addEventListener('click', SongApi.handleDelete)
     newSongBtn().addEventListener('click', Song.clearSongContainer)
