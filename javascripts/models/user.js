@@ -18,12 +18,6 @@ class User {
         return this.all.find(user => user.username === username)
     }
     
-    static findOrCreateBy(userObj) {
-        return this.findByUsername(userObj.username) || new User({
-            username: userObj.attributes.username,
-            id: userObj.id,
-        })}
-
     renderUser() {
         Nav.updateNav(this.username)
         const span = document.createElement('span')

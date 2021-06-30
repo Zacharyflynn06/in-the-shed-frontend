@@ -6,7 +6,7 @@ class UserApi {
         fetch(this.url)
         .then(resp => resp.json())
         .then(json => json.data.forEach(userObj => 
-            User.findOrCreateBy(userObj)
+            userObj.findOrCreateBy
             
             ))
         .catch(this.handleError)
@@ -23,15 +23,6 @@ class UserApi {
         deleteBtn().classList.remove("hide")
         newSongBtn().classList.remove("hide")
         
-        // const user = User.findByUsername(username)
-        
-        // if (user) {
-        //     user.renderUser()
-            
-        // } else {
-            
-        //     UserApi.createUser(username)
-        // }
         UserApi.findOrCreateUser(username)
         
     }
@@ -51,14 +42,11 @@ class UserApi {
                 username: json.data.attributes.username
             }
             )
-            // Nav.updateNav(newUser.username)
             currentUser = user
             user.renderUser()
-            
         })
     }
     
-
     static handleError(error) {
         flash().innerText = error
         flash().classList.remove("hide")

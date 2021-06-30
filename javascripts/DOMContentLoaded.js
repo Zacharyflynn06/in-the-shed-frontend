@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // fetch users
+    // fetch songs
     SongApi.fetchSongs()
     
 
