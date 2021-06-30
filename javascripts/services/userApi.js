@@ -5,7 +5,6 @@ class UserApi {
     static fetchUsers() {
         fetch(this.url)
         .then(resp => resp.json())
-        // .then(json => {debugger})
         .then(json => json.data.forEach(userObj => 
             User.findOrCreateBy(userObj)
             
@@ -24,19 +23,20 @@ class UserApi {
         deleteBtn().classList.remove("hide")
         newSongBtn().classList.remove("hide")
         
-        const user = User.findByUsername(username)
+        // const user = User.findByUsername(username)
         
-        if (user) {
-            user.renderUser()
+        // if (user) {
+        //     user.renderUser()
             
-        } else {
+        // } else {
             
-            UserApi.createUser(username)
-        }
+        //     UserApi.createUser(username)
+        // }
+        UserApi.findOrCreateUser(username)
         
     }
 
-    static createUser(username) {
+    static findOrCreateUser(username) {
         fetch(User.userURL, {
             method: 'POST',
             headers: {
@@ -46,9 +46,15 @@ class UserApi {
         })
         .then(resp => resp.json())
         .then(json => {
-            let newUser = new User(json)
-            Nav.updateNav(newUser.username)
-            currentUser = newUser
+            let user = new User({
+                id: json.data.id,
+                username: json.data.attributes.username
+            }
+            )
+            // Nav.updateNav(newUser.username)
+            currentUser = user
+            user.renderUser()
+            
         })
     }
     

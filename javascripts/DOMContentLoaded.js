@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
     // fetch users
-    UserApi.fetchUsers()
     SongApi.fetchSongs()
     
-    
+
     // buttons
     createUserBtn().addEventListener('click', UserApi.handleSubmit)
     createMeasureBtn().addEventListener('click', Tool.renderForm)
@@ -24,4 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
 })
+
+
 const clickTrack = new Timer(SoundEngine.playSong, 60000/bpm, true)

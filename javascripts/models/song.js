@@ -102,8 +102,6 @@ class Song {
         }
     }
 
-    
-
 
     removeSongFromPage() {
         const li = document.querySelector(`#song-${this.id}`)

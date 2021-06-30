@@ -50,7 +50,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 6% 20% 20% 20% 20% 6%;
-    grid-template-rows: 12% 12% 12% 12% 12% 12% 12% 12%;
+    grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10%;
     column-gap: 1.5%;
     row-gap: 1.5%;
     grid-template-areas: 
