@@ -35,7 +35,7 @@ class User {
     }
     
     songs() {
-       return Song.all.filter(song => song.user === this)
+       return Song.all.filter(song => song.userId === this.id)
     }
 
 }

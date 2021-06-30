@@ -67,7 +67,6 @@ class SongApi {
 
     static handleCreate = (song, data) => {
 
-        // let user = User.findById(currentUser.id)
         let status
 
         fetch(SongApi.url, {
@@ -82,13 +81,13 @@ class SongApi {
             status = resp.status
             return resp.json()
         })
-        .then(json => { 
+        .then(json => { {debugger}
             song = new Song({
                 id: json.data.attributes.id,
                 author: json.data.attributes.author,
                 title: json.data.attributes.title,
                 tempo: json.data.attributes.tempo,
-                user: User.findById(currentUser.id),
+                userId: json.data.attributes.user.id,
                 time_signature: json.data.attributes.time_signature.name,
                 measures: json.data.attributes.measures
             })
@@ -116,19 +115,20 @@ class SongApi {
         })
 
         .then(json => {
-                
-                song.id = json.data.attributes.id,
-                song.author = json.data.attributes.author,
-                song.title = json.data.attributes.title,
-                song.tempo = json.data.attributes.tempo,
-                song.time_signature = json.data.attributes.time_signature.name,
-                song.measures = json.data.attributes.measures
-                Nav.appendSongsToNav(),
-                currentSong = song
+            
+            song.id = json.data.attributes.id,
+            song.author = json.data.attributes.author,
+            song.title = json.data.attributes.title,
+            song.tempo = json.data.attributes.tempo,
+            song.time_signature = json.data.attributes.time_signature.name,
+            song.measures = json.data.attributes.measures
+    
+            Nav.appendSongsToNav(currentUser.songs()),
+            currentSong = song
 
-                if(status === "200") {
-                    alert("Song was Updated!")
-                }
+            if(status === "200") {
+                alert("Song was Updated!")
+            }
         })
     
     }

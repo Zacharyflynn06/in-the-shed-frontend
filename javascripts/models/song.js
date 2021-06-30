@@ -2,8 +2,8 @@ class Song {
 
     static all = []
 
-    constructor({user, id, title, author, tempo, time_signature, measures = []}){
-        this.user = user
+    constructor({userId, id, title, author, tempo, time_signature, measures = []}){
+        this.userId = userId
         this.id = parseInt(id)
         this.title = title
         this.tempo = parseInt(tempo)
@@ -24,7 +24,7 @@ class Song {
     
     static findOrCreateByTitle(songObj) {
         return this.findByTitle(songObj.title) || new Song({
-            user: User.findByUsername(songObj.attributes.user.username),
+            userId: songObj.attributes.user.id,
             id: songObj.id,
             title: songObj.attributes.title,
             tempo: songObj.attributes.tempo,
