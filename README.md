@@ -6,9 +6,13 @@ In The Shed is a tool designed for musicians to practice playing melodies, bassl
 
 ## Usage
 
-Users can simply start the metronome by clicking Start and choosing a tempo.  If you would like to add harmony to the form, simply choose how many bars you would like the song to be, and a time signature for the song, then click "Create Measures'.  This will generate the specified number of measures on the song form, and the metronome will now play in the time signature that was specified.  To add harmony, click "Add Chords".  This will turn the tool card around, and allow the user to create almost any chord they like with the three drop down menus.  Once you click "Create Chord", the audio sample for the selected chord will play, and you are free to drag and drop the chord into the position you want it on the form.  Once you have added all the chords for your song, simply press play on the metronome and the song will begin playing, and loop at the end of the form.  You can increase or decrease the metronome in real time, and move chords while the song is playing.
+Users can simply start the metronome by clicking Start and choosing a tempo.  If you would like to add harmony to the form, simply choose how many bars you would like the song to be, and a time signature for the song, then click "Create Measures'.  This will generate the specified number of measures on the song form, and the metronome will now play in the time signature that was specified.  
+
+To add harmony, click "Add Chords".  This will turn the tool card around, and allow the user to create almost any chord they like with the three drop down menus.  Once you click "Create Chord", the audio sample for the selected chord will play, and you are free to drag and drop the chord into the position you want it on the form.  Once you have added all the chords for your song, simply press play on the metronome and the song will begin playing, and loop at the end of the form.  You can increase or decrease the metronome in real time, and move chords while the song is playing.
 
 If you wish to save your song, simply login or create a User profile using the menu on the left hand side. Once you have logged in, you will see save and delete buttons appear underneath the form.
+
+Note: You must give your song a title in order to save it!
 
 If you wish to minimize the menu, simply press the hamburger icon.
 
