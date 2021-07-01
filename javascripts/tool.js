@@ -9,7 +9,9 @@ class Tool {
     
         if(type === "♮") type = ""
         if(quality === "maj") quality = ""
+
         root = root + type
+        
         const div = document.createElement("div")
         div.innerHTML = `${root}${quality}`
         div.className = "new-chord"
@@ -34,8 +36,12 @@ class Tool {
         Metronome.createTempo()
         clickCount = 0
         measuresContainer().innerHTML = ""
-        
-        let n = measureField().value
+        let formLength = measureField().value
+        this.renderEmpties(formLength)
+        this.renderTimeSignature(timeSig().value)
+    }
+    
+    static renderEmpties = (n) => {
         if(n > 32) {n = 32}
         
         for(let i=1; i <= n; i++) {
@@ -55,8 +61,6 @@ class Tool {
             empty.addEventListener('dragleave', dragLeave)
             empty.addEventListener('drop', dragDrop)
         }
-        
-        this.renderTimeSignature(timeSig().value)
     }
     
     static renderTimeSignature = (ts) => {

@@ -2,7 +2,7 @@
 // new one
 
 function dragStart(e) {
-
+    console.log(this)
     e.preventDefault
 
     if(this.className === "new-chord"){

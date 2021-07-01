@@ -9,14 +9,6 @@ class User {
         this.id = parseInt(id)
         User.all.push(this)
     }
-
-    static findById(id) {
-        return this.all.find(user => user.id === id)
-    }
-    
-    static findByUsername(username) {
-        return this.all.find(user => user.username === username)
-    }
     
     renderUser() {
         Nav.updateNav(this.username)
