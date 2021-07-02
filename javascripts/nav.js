@@ -21,6 +21,10 @@ class Nav {
     static appendSongsToNav(songs) {
         this.removeSongsFromNav()
 
+        songs = songs.sort(function (a, b) {
+
+            return (a.title <= b.title ?  -1 :  1)})
+
         for(let song of songs) {
             const li = document.createElement('li')
             li.innerHTML = `${song.title} - ${song.author}`

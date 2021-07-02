@@ -12,8 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     createChordBtn().addEventListener('click', Tool.renderChord)
     saveBtn().addEventListener('click', SongApi.handleSubmit)
     deleteBtn().addEventListener('click', SongApi.handleDelete)
-    newSongBtn().addEventListener('click', Song.clearSongContainer)
-    
+    newSongBtn().addEventListener('click', Song.clearSongContainer)    
     // metronome
     decreaseMetBtn().addEventListener('click', Metronome.decreaseMetronome)
     tempoRange().addEventListener('input', Metronome.changeMetByRange)

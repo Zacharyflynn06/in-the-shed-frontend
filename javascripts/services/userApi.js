@@ -2,15 +2,15 @@ class UserApi {
 
     static url = 'http://localhost:3000/users'
 
-    static fetchUsers() {
-        fetch(this.url)
-        .then(resp => resp.json())
-        .then(json => json.data.forEach(userObj => 
-            userObj.findOrCreateBy
+    // static fetchUsers() {
+    //     fetch(this.url)
+    //     .then(resp => resp.json())
+    //     .then(json => json.data.forEach(userObj => 
+    //         userObj.findOrCreateBy
             
-            ))
-        .catch(this.handleError)
-    }
+    //         ))
+    //     .catch(this.handleError)
+    // }
 
     static handleSubmit(e) {
         e.preventDefault()

@@ -32,7 +32,6 @@ const songListUl = () => document.querySelector('.song-list')
 const songListContainer = () => document.querySelector('.song-list-container')
 const newSongBtn = () => document.querySelector('#new-song-button')
 const loginContainer = () => document.querySelector('#login-container')
-
 // flash
 
 const flash = () => document.querySelector("#flash")
