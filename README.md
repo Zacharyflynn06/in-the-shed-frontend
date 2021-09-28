@@ -2,7 +2,7 @@
 
 ## In The Shed Frontend
 
-In The Shed is a tool designed for musicians to practice playing melodies, basslines, scales, and arpeggios over a song-form that they can define. In the shed is a single page JS web application front end, using a Rails API backend.
+In The Shed is a tool designed for musicians to practice playing melodies, bass lines, scales, and arpeggios over a song-form that they can define. In the shed is a single page JS web application front end, using a Rails API backend.
 
 ## Usage
 
